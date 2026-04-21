@@ -200,7 +200,13 @@
       emailjs.send(
         'service_8khivop',      // Service ID
         'template_h2uz66o',      // Template ID
-        formData
+        {
+          user_name: document.getElementById('user_name').value,
+          user_email: document.getElementById('user_email').value,
+          user_phone: document.getElementById('user_phone').value,
+          user_message: document.getElementById('user_message').value,
+          to_email: 'ramishan0300@gmail.com'
+        }
       ).then(function (response) {
         // Success
         formStatus.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
