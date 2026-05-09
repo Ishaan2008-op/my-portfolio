@@ -2,699 +2,704 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Projects | Ishaan Ram</title>
- <link rel="stylesheet" href="style.css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- <style>
-  .projects-page-hero {
-   text-align: center;
-   padding: 5rem 2rem;
-   background: linear-gradient(135deg, rgba(79, 144, 232, 0.05), rgba(139, 127, 216, 0.05));
-   margin-top: 5rem;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Ishaan Ram</title>
+  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .projects-page-hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.05), rgba(var(--accent-violet-rgb), 0.05));
+      margin-top: 5rem;
+    }
 
-  .projects-page-hero h1 {
-   font-size: 3rem;
-   margin-bottom: 1rem;
-   background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-   background-clip: text;
-  }
+    .projects-page-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-  .projects-page-hero p {
-   font-size: 1.1rem;
-   color: var(--text-secondary);
-   max-width: 600px;
-   margin: 0 auto;
-  }
+    .projects-page-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-  .projects-section {
-   padding: 4rem 2rem;
-  }
+    .projects-section {
+      padding: 4rem 2rem;
+    }
 
-  .projects-container {
-   max-width: 1200px;
-   margin: 0 auto;
-  }
+    .projects-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-  .projects-grid {
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-   gap: 2.5rem;
-   margin-top: 3rem;
-  }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
 
-  .project-card {
-   padding: 0;
-   overflow: hidden;
-   display: flex;
-   flex-direction: column;
-   height: 100%;
-   cursor: pointer;
-   position: relative;
-  }
+    .project-card {
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      cursor: pointer;
+      position: relative;
+    }
 
-  .project-card:hover {
-   transform: translateY(-8px);
-  }
+    .project-card:hover {
+      transform: translateY(-8px);
+    }
 
-  .project-media {
-   width: 100%;
-   height: 200px;
-   background: linear-gradient(135deg, #1a2332, #252c3c);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   overflow: hidden;
-   position: relative;
-  }
+    .project-media {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #1a2332, #252c3c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
 
-  .project-media img {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-  }
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  .project-media video {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-  }
+    .project-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  .project-overlay {
-   position: absolute;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   background: rgba(0, 0, 0, 0.3);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   opacity: 0;
-   transition: opacity 0.3s ease;
-  }
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
-  .project-card:hover .project-overlay {
-   opacity: 1;
-  }
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
 
-  .project-overlay-text {
-   color: white;
-   font-weight: 600;
-   display: flex;
-   align-items: center;
-   gap: 0.5rem;
-   font-size: 0.9rem;
-  }
+    .project-overlay-text {
+      color: white;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
 
-  .project-info {
-   padding: 1.8rem;
-   flex: 1;
-   display: flex;
-   flex-direction: column;
-  }
+    .project-info {
+      padding: 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
 
-  .project-category {
-   display: inline-block;
-   background: linear-gradient(135deg, rgba(79, 144, 232, 0.2), rgba(139, 127, 216, 0.2));
-   padding: 0.4rem 0.9rem;
-   border-radius: 20px;
-   font-size: 0.75rem;
-   color: var(--accent-blue);
-   margin-bottom: 0.8rem;
-   font-weight: 600;
-   width: fit-content;
-  }
+    .project-category {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.2), rgba(var(--accent-violet-rgb), 0.2));
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: var(--accent-blue);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      width: fit-content;
+    }
 
-  .project-info h3 {
-   color: var(--accent-blue);
-   margin-bottom: 0.8rem;
-   font-size: 1.2rem;
-  }
+    .project-info h3 {
+      color: var(--accent-blue);
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
 
-  .project-description {
-   flex: 1;
-   margin-bottom: 1rem;
-   color: var(--text-secondary);
-   line-height: 1.6;
-   font-size: 0.95rem;
-   display: -webkit-box;
-   -webkit-line-clamp: 4;
-   -webkit-box-orient: vertical;
-   overflow: hidden;
-  }
+    .project-description {
+      flex: 1;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 0.95rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
 
-  .skills-tags {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 0.6rem;
-   margin-top: auto;
-  }
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: auto;
+    }
 
-  .skill-tag {
-   background: rgba(79, 144, 232, 0.1);
-   border: 1px solid var(--border-color);
-   color: var(--accent-blue);
-   padding: 0.4rem 0.8rem;
-   border-radius: 6px;
-   font-size: 0.8rem;
-   font-weight: 500;
-  }
+    .skill-tag {
+      background: rgba(79, 144, 232, 0.1);
+      border: 1px solid var(--border-color);
+      color: var(--accent-blue);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
 
-  /* Modal Styles */
-  .modal {
-   display: none;
-   position: fixed;
-   z-index: 2000;
-   left: 0;
-   top: 0;
-   width: 100%;
-   height: 100%;
-   background: rgba(0, 0, 0, 0.7);
-   backdrop-filter: blur(5px);
-   animation: fadeIn 0.3s ease;
-  }
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      animation: fadeIn 0.3s ease;
+    }
 
-  .modal.active {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-  }
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .modal-content {
-   background: var(--card-bg);
-   border: 1px solid var(--border-color);
-   border-radius: 16px;
-   max-width: 900px;
-   max-height: 90vh;
-   overflow-y: auto;
-   width: 90%;
-   padding: 2rem;
-   position: relative;
-   box-shadow: var(--shadow);
-   animation: slideUp 0.3s ease;
-  }
+    .modal-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      max-width: 900px;
+      max-height: 90vh;
+      overflow-y: auto;
+      width: 90%;
+      padding: 2rem;
+      position: relative;
+      box-shadow: var(--shadow);
+      animation: slideUp 0.3s ease;
+    }
 
-  .modal-close {
-   position: absolute;
-   top: 1.5rem;
-   right: 1.5rem;
-   background: rgba(79, 144, 232, 0.2);
-   border: none;
-   color: var(--accent-blue);
-   font-size: 1.5rem;
-   cursor: pointer;
-   width: 40px;
-   height: 40px;
-   border-radius: 8px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   transition: var(--transition);
-  }
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(79, 144, 232, 0.2);
+      border: none;
+      color: var(--accent-blue);
+      font-size: 1.5rem;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
 
-  .modal-close:hover {
-   background: rgba(79, 144, 232, 0.4);
-  }
+    .modal-close:hover {
+      background: rgba(79, 144, 232, 0.4);
+    }
 
-  .modal-header {
-   display: flex;
-   align-items: center;
-   gap: 1.5rem;
-   margin-bottom: 2rem;
-  }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
 
-  .modal-header-image {
-   width: 120px;
-   height: 120px;
-   border-radius: 12px;
-   overflow: hidden;
-   flex-shrink: 0;
-  }
+    .modal-header-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
 
-  .modal-header-image img {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-  }
+    .modal-header-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  .modal-header-info h2 {
-   margin: 0 0 0.5rem 0;
-   font-size: 1.8rem;
-  }
+    .modal-header-info h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.8rem;
+    }
 
-  .modal-category-full {
-   display: inline-block;
-   background: linear-gradient(135deg, rgba(79, 144, 232, 0.3), rgba(139, 127, 216, 0.3));
-   padding: 0.5rem 1rem;
-   border-radius: 20px;
-   font-size: 0.85rem;
-   color: var(--accent-blue);
-   margin-bottom: 0.5rem;
-   font-weight: 600;
-  }
+    .modal-category-full {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.3), rgba(var(--accent-violet-rgb), 0.3));
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
 
-  .modal-details {
-   margin-bottom: 2rem;
-  }
+    .modal-details {
+      margin-bottom: 2rem;
+    }
 
-  .modal-details h3 {
-   color: var(--accent-blue);
-   margin-bottom: 1rem;
-   font-size: 1.2rem;
-  }
+    .modal-details h3 {
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
 
-  .modal-details p {
-   line-height: 1.8;
-   margin-bottom: 1rem;
-  }
+    .modal-details p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
 
-  .modal-features {
-   background: rgba(79, 144, 232, 0.05);
-   padding: 1.5rem;
-   border-radius: 10px;
-   border-left: 4px solid var(--accent-blue);
-   margin-bottom: 1.5rem;
-  }
+    .modal-features {
+      background: rgba(79, 144, 232, 0.05);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border-left: 4px solid var(--accent-blue);
+      margin-bottom: 1.5rem;
+    }
 
-  .modal-features h4 {
-   color: var(--accent-blue);
-   margin-bottom: 0.8rem;
-   font-size: 1rem;
-  }
+    .modal-features h4 {
+      color: var(--accent-blue);
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
 
-  .modal-features ul {
-   list-style: none;
-   color: var(--text-secondary);
-  }
+    .modal-features ul {
+      list-style: none;
+      color: var(--text-secondary);
+    }
 
-  .modal-features li {
-   padding: 0.4rem 0;
-   display: flex;
-   align-items: center;
-   gap: 0.6rem;
-  }
+    .modal-features li {
+      padding: 0.4rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
 
-  .modal-features li:before {
-   content: "▸";
-   color: var(--accent-blue);
-   font-weight: bold;
-  }
+    .modal-features li:before {
+      content: "▸";
+      color: var(--accent-blue);
+      font-weight: bold;
+    }
 
-  .modal-skills-full {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 0.8rem;
-  }
+    .modal-skills-full {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
 
-  .skill-badge {
-   background: linear-gradient(135deg, rgba(79, 144, 232, 0.15), rgba(139, 127, 216, 0.15));
-   border: 1px solid var(--accent-blue);
-   color: var(--accent-blue);
-   padding: 0.6rem 1.2rem;
-   border-radius: 20px;
-   font-size: 0.9rem;
-   font-weight: 600;
-  }
+    .skill-badge {
+      background: linear-gradient(135deg, rgba(79, 144, 232, 0.15), rgba(139, 127, 216, 0.15));
+      border: 1px solid var(--accent-blue);
+      color: var(--accent-blue);
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
 
-  .modal-links {
-   display: flex;
-   gap: 1rem;
-   flex-wrap: wrap;
-   margin-top: 1.5rem;
-  }
+    .modal-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
 
-  .modal-link-btn {
-   display: inline-flex;
-   align-items: center;
-   gap: 0.6rem;
-   background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
-   color: white;
-   padding: 0.8rem 1.6rem;
-   border-radius: 8px;
-   text-decoration: none;
-   font-weight: 600;
-   transition: var(--transition);
-   border: none;
-   cursor: pointer;
-  }
+    .modal-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
 
-  .modal-link-btn:hover {
-   transform: translateY(-2px);
-   box-shadow: 0 6px 25px rgba(79, 144, 232, 0.35);
-  }
+    .modal-link-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(79, 144, 232, 0.35);
+    }
 
-  .modal-link-btn.secondary {
-   background: transparent;
-   border: 2px solid var(--accent-blue);
-   color: var(--accent-blue);
-  }
+    .modal-link-btn.secondary {
+      background: transparent;
+      border: 2px solid var(--accent-blue);
+      color: var(--accent-blue);
+    }
 
-  @keyframes fadeIn {
-   from {
-    opacity: 0;
-   }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
 
-   to {
-    opacity: 1;
-   }
-  }
+      to {
+        opacity: 1;
+      }
+    }
 
-  @keyframes slideUp {
-   from {
-    opacity: 0;
-    transform: translateY(50px);
-   }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
 
-   to {
-    opacity: 1;
-    transform: translateY(0);
-   }
-  }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  @media (max-width: 768px) {
-   .projects-page-hero h1 {
-    font-size: 2rem;
-   }
+    @media (max-width: 768px) {
+      .projects-page-hero h1 {
+        font-size: 2rem;
+      }
 
-   .projects-grid {
-    grid-template-columns: 1fr;
-   }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
 
-   .project-media {
-    height: 180px;
-   }
+      .project-media {
+        height: 180px;
+      }
 
-   .modal-content {
-    width: 95%;
-    padding: 1.5rem;
-   }
+      .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+      }
 
-   .modal-header {
-    flex-direction: column;
-    text-align: center;
-   }
+      .modal-header {
+        flex-direction: column;
+        text-align: center;
+      }
 
-   .modal-header-image {
-    width: 100px;
-    height: 100px;
-   }
-  }
- </style>
+      .modal-header-image {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
 </head>
 
 <body>
- <nav>
-  <a href="index.html" class="nav-logo">IR</a>
-  <div class="nav-links">
-   <a href="index.html">Home</a>
-   <a href="index.html#about-me">About</a>
-   <a href="index.html#education-skills">Skills</a>
-   <a href="projects.html" class="nav-projects-btn">View Projects</a>
-   <a href="index.html#contact">Contact</a>
+  <nav>
+    <a href="index.html" class="nav-logo">IR</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#about-me">About</a>
+      <a href="index.html#education-skills">Skills</a>
+      <a href="projects.html" class="nav-projects-btn">View Projects</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Projects Hero Section -->
+  <div class="projects-page-hero">
+    <h1>My Projects</h1>
+    <p>A collection of robotics innovations, IoT solutions, electronics projects, and full-stack applications that
+      showcase
+      my passion for building practical technology.</p>
   </div>
- </nav>
 
- <!-- Projects Hero Section -->
- <div class="projects-page-hero">
-  <h1>My Projects</h1>
-  <p>A collection of robotics innovations, IoT solutions, electronics projects, and full-stack applications that
-   showcase
-   my passion for building practical technology.</p>
- </div>
+  <!-- Main Projects Section -->
+  <section class="projects-section">
+    <div class="projects-container">
+      <div class="projects-grid">
+        <!-- Project 1: Robo Sumo Bot -->
+        <div class="card project-card" onclick="openModal(0)">
+          <div class="project-media">
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad1)'/%3E%3Ccircle cx='150' cy='150' r='80' fill='%234f90e8' opacity='0.1'/%3E%3Crect x='100' y='100' width='140' height='100' fill='none' stroke='%234f90e8' stroke-width='3' rx='10'/%3E%3Ccircle cx='130' cy='140' r='15' fill='%234f90e8'/%3E%3Ccircle cx='210' cy='140' r='15' fill='%234f90e8'/%3E%3Crect x='105' y='180' width='130' height='8' fill='%234f90e8'/%3E%3Ctext x='250' y='150' font-size='20' fill='%234f90e8' font-weight='bold'%3EGyro-Based%3C/text%3E%3Ctext x='250' y='180' font-size='18' fill='%238b7fd8'%3EHardware Design%3C/text%3E%3C/svg%3E"
+              alt="Robo Sumo Bot">
+            <div class="project-overlay">
+              <div class="project-overlay-text">
+                <i class="fa-solid fa-click"></i> Click to see details
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category"><i class="fa-solid fa-robot"></i> Robotics</span>
+            <h3>Robo Sumo Bot</h3>
+            <p class="project-description">Gyro-based sumo robot with advanced hardware design and sensor integration.
+              Features MPU-6050 gyro stabilization, precision motor control, and ultrasonic obstacle detection for
+              competitive
+              sumo performance.</p>
+            <div class="skills-tags">
+              <span class="skill-tag">Arduino</span>
+              <span class="skill-tag">Gyroscope Sensors</span>
+              <span class="skill-tag">Motor Control</span>
+              <span class="skill-tag">Hardware Engineering</span>
+            </div>
+          </div>
+        </div>
 
- <!-- Main Projects Section -->
- <section class="projects-section">
-  <div class="projects-container">
-   <div class="projects-grid">
-    <!-- Project 1: Robo Sumo Bot -->
-    <div class="card project-card" onclick="openModal(0)">
-     <div class="project-media">
-      <img
-       src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad1)'/%3E%3Ccircle cx='150' cy='150' r='80' fill='%234f90e8' opacity='0.1'/%3E%3Crect x='100' y='100' width='140' height='100' fill='none' stroke='%234f90e8' stroke-width='3' rx='10'/%3E%3Ccircle cx='130' cy='140' r='15' fill='%234f90e8'/%3E%3Ccircle cx='210' cy='140' r='15' fill='%234f90e8'/%3E%3Crect x='105' y='180' width='130' height='8' fill='%234f90e8'/%3E%3Ctext x='250' y='150' font-size='20' fill='%234f90e8' font-weight='bold'%3EGyro-Based%3C/text%3E%3Ctext x='250' y='180' font-size='18' fill='%238b7fd8'%3EHardware Design%3C/text%3E%3C/svg%3E"
-       alt="Robo Sumo Bot">
-      <div class="project-overlay">
-       <div class="project-overlay-text">
-        <i class="fa-solid fa-click"></i> Click to see details
-       </div>
+        <!-- Project 2: Arduino Sleep Buzzer -->
+        <div class="card project-card" onclick="openModal(1)">
+          <div class="project-media">
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad3m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad3m)'/%3E%3Crect x='100' y='60' width='120' height='160' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Crect x='120' y='80' width='80' height='100' fill='%234f90e8' opacity='0.2'/%3E%3Ccircle cx='160' cy='130' r='10' fill='%238b7fd8'/%3E%3Crect x='280' y='90' width='140' height='120' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='8'/%3E%3Ctext x='300' y='115' font-size='13' fill='%234f90e8' font-weight='bold'%3EPIR Sensor%3C/text%3E%3Crect x='290' y='135' width='120' height='50' fill='%234f90e8' opacity='0.15' rx='4'/%3E%3Ctext x='295' y='170' font-size='12' fill='%234f90e8'%3EMotion Detection%3C/text%3E%3Ctext x='130' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EArduino%3C/text%3E%3Ctext x='300' y='250' font-size='16' fill='%238b7fd8'%3EAlert System%3C/text%3E%3C/svg%3E"
+              alt="Arduino Sleep Buzzer">
+            <div class="project-overlay">
+              <div class="project-overlay-text">
+                <i class="fa-solid fa-click"></i> Click to see details
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category"><i class="fa-solid fa-microchip"></i> IoT Hardware</span>
+            <h3>Arduino Sleep Buzzer</h3>
+            <p class="project-description">Intelligent alarm system preventing oversleeping with motion detection.
+              Combines PIR sensors with Arduino Uno for reliable wake-up alerts. Features real-time motion sensing and
+              multi-tone buzzer control.</p>
+            <div class="skills-tags">
+              <span class="skill-tag">Arduino</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">Embedded Systems</span>
+              <span class="skill-tag">Sensor Integration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: IPL Toss Analyzer -->
+        <div class="card project-card" onclick="openModal(2)">
+          <div class="project-media">
+            <img src="ipl  (3).jpeg" alt="IPL Toss Analyzer">
+            <div class="project-overlay">
+              <div class="project-overlay-text">
+                <i class="fa-solid fa-click"></i> Click to see details
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category"><i class="fa-solid fa-chart-line"></i> Data Analysis</span>
+            <h3>IPL Toss Analyzer</h3>
+            <p class="project-description">Cricket analytics platform analyzing IPL toss decisions and their impact on
+              match
+              outcomes.
+              Demonstrates full-stack development with data processing and visualization capabilities.</p>
+            <div class="skills-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Data Analysis</span>
+              <span class="skill-tag">Web Development</span>
+              <span class="skill-tag">SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: RC Controlled Car -->
+        <div class="card project-card" onclick="openModal(3)">
+          <div class="project-media">
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad4m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad4m)'/%3E%3Crect x='100' y='80' width='250' height='130' fill='none' stroke='%234f90e8' stroke-width='3' rx='12'/%3E%3Ccircle cx='150' cy='160' r='20' fill='%238b7fd8' opacity='0.7'/%3E%3Ccircle cx='280' cy='160' r='20' fill='%234f90e8' opacity='0.7'/%3E%3Crect x='125' y='105' width='150' height='40' fill='%234f90e8' opacity='0.2' rx='6'/%3E%3Cpath d='M 175 40 L 185 60 L 165 60 Z' fill='%234f90e8'/%3E%3Ctext x='110' y='250' font-size='18' fill='%234f90e8' font-weight='bold'%3EMotor Control%3C/text%3E%3Ctext x='280' y='250' font-size='18' fill='%238b7fd8'%3E%26 Steering%3C/text%3E%3C/svg%3E"
+              alt="RC Controlled Car">
+            <div class="project-overlay">
+              <div class="project-overlay-text">
+                <i class="fa-solid fa-click"></i> Click to see details
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category"><i class="fa-solid fa-gamepad"></i> Robotics</span>
+            <h3>RC Controlled Car</h3>
+            <p class="project-description">Wireless remote-controlled robot car with motor control and steering.
+              Demonstrates PWM motor speed control, RF communication, and differential steering. Perfect foundation for
+              robotics learning and experimentation.</p>
+            <div class="skills-tags">
+              <span class="skill-tag">Arduino</span>
+              <span class="skill-tag">Motor Control</span>
+              <span class="skill-tag">Wireless Communication</span>
+              <span class="skill-tag">Robotics Basics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Emergency Gas Sense & Exit System -->
+        <div class="card project-card" onclick="openModal(4)">
+          <div class="project-media">
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad5m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad5m)'/%3E%3Crect x='100' y='70' width='120' height='140' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Ccircle cx='160' cy='140' r='8' fill='%234f90e8' opacity='0.8'/%3E%3Ccircle cx='140' cy='105' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Ccircle cx='155' cy='110' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Crect x='280' y='100' width='140' height='70' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='6'/%3E%3Cline x1='310' y1='115' x2='340' y2='115' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Cline x1='310' y1='150' x2='360' y2='150' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Ctext x='120' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EGas Detection%3C/text%3E%3Ctext x='290' y='250' font-size='16' fill='%238b7fd8'%3EServo-Controlled Exit%3C/text%3E%3C/svg%3E"
+              alt="Emergency Gas Sense & Exit System">
+            <div class="project-overlay">
+              <div class="project-overlay-text">
+                <i class="fa-solid fa-click"></i> Click to see details
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-category"><i class="fa-solid fa-triangle-exclamation"></i> IoT Safety</span>
+            <h3>Emergency Gas Sense & Exit System</h3>
+            <p class="project-description">Automated safety system monitoring air quality and triggering emergency
+              protocols.
+              Demonstrates IoT automation in real-world safety applications with automated servo-controlled emergency
+              exits.
+            </p>
+            <div class="skills-tags">
+              <span class="skill-tag">Arduino</span>
+              <span class="skill-tag">Gas Sensors</span>
+              <span class="skill-tag">Automation</span>
+              <span class="skill-tag">Safety Systems</span>
+            </div>
+          </div>
+        </div>
       </div>
-     </div>
-     <div class="project-info">
-      <span class="project-category"><i class="fa-solid fa-robot"></i> Robotics</span>
-      <h3>Robo Sumo Bot</h3>
-      <p class="project-description">Gyro-based sumo robot with advanced hardware design and sensor integration.
-       Features MPU-6050 gyro stabilization, precision motor control, and ultrasonic obstacle detection for competitive
-       sumo performance.</p>
-      <div class="skills-tags">
-       <span class="skill-tag">Arduino</span>
-       <span class="skill-tag">Gyroscope Sensors</span>
-       <span class="skill-tag">Motor Control</span>
-       <span class="skill-tag">Hardware Engineering</span>
+
+      <!-- More Projects Coming Soon -->
+      <div style="text-align: center; margin-top: 5rem; padding: 3rem; border-top: 1px solid var(--border-color);">
+        <p style="color: var(--text-secondary); font-size: 1.1rem;">
+          <i class="fa-solid fa-flask"></i> More projects coming soon as I continue exploring IoT, Robotics, and
+          Software
+          Development...
+        </p>
       </div>
-     </div>
     </div>
+  </section>
 
-    <!-- Project 2: Arduino Sleep Buzzer -->
-    <div class="card project-card" onclick="openModal(1)">
-     <div class="project-media">
-      <img
-       src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad3m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad3m)'/%3E%3Crect x='100' y='60' width='120' height='160' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Crect x='120' y='80' width='80' height='100' fill='%234f90e8' opacity='0.2'/%3E%3Ccircle cx='160' cy='130' r='10' fill='%238b7fd8'/%3E%3Crect x='280' y='90' width='140' height='120' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='8'/%3E%3Ctext x='300' y='115' font-size='13' fill='%234f90e8' font-weight='bold'%3EPIR Sensor%3C/text%3E%3Crect x='290' y='135' width='120' height='50' fill='%234f90e8' opacity='0.15' rx='4'/%3E%3Ctext x='295' y='170' font-size='12' fill='%234f90e8'%3EMotion Detection%3C/text%3E%3Ctext x='130' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EArduino%3C/text%3E%3Ctext x='300' y='250' font-size='16' fill='%238b7fd8'%3EAlert System%3C/text%3E%3C/svg%3E"
-       alt="Arduino Sleep Buzzer">
-      <div class="project-overlay">
-       <div class="project-overlay-text">
-        <i class="fa-solid fa-click"></i> Click to see details
-       </div>
-      </div>
-     </div>
-     <div class="project-info">
-      <span class="project-category"><i class="fa-solid fa-microchip"></i> IoT Hardware</span>
-      <h3>Arduino Sleep Buzzer</h3>
-      <p class="project-description">Intelligent alarm system preventing oversleeping with motion detection.
-       Combines PIR sensors with Arduino Uno for reliable wake-up alerts. Features real-time motion sensing and
-       multi-tone buzzer control.</p>
-      <div class="skills-tags">
-       <span class="skill-tag">Arduino</span>
-       <span class="skill-tag">C++</span>
-       <span class="skill-tag">Embedded Systems</span>
-       <span class="skill-tag">Sensor Integration</span>
-      </div>
-     </div>
+  <!-- Project Details Modal -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div id="modalBody"></div>
     </div>
-
-    <!-- Project 3: IPL Toss Analyzer -->
-    <div class="card project-card" onclick="openModal(2)">
-     <div class="project-media">
-      <img src="ipl  (3).jpeg" alt="IPL Toss Analyzer">
-      <div class="project-overlay">
-       <div class="project-overlay-text">
-        <i class="fa-solid fa-click"></i> Click to see details
-       </div>
-      </div>
-     </div>
-     <div class="project-info">
-      <span class="project-category"><i class="fa-solid fa-chart-line"></i> Data Analysis</span>
-      <h3>IPL Toss Analyzer</h3>
-      <p class="project-description">Cricket analytics platform analyzing IPL toss decisions and their impact on match
-       outcomes.
-       Demonstrates full-stack development with data processing and visualization capabilities.</p>
-      <div class="skills-tags">
-       <span class="skill-tag">Python</span>
-       <span class="skill-tag">Data Analysis</span>
-       <span class="skill-tag">Web Development</span>
-       <span class="skill-tag">SQL</span>
-      </div>
-     </div>
-    </div>
-
-    <!-- Project 4: RC Controlled Car -->
-    <div class="card project-card" onclick="openModal(3)">
-     <div class="project-media">
-      <img
-       src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad4m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad4m)'/%3E%3Crect x='100' y='80' width='250' height='130' fill='none' stroke='%234f90e8' stroke-width='3' rx='12'/%3E%3Ccircle cx='150' cy='160' r='20' fill='%238b7fd8' opacity='0.7'/%3E%3Ccircle cx='280' cy='160' r='20' fill='%234f90e8' opacity='0.7'/%3E%3Crect x='125' y='105' width='150' height='40' fill='%234f90e8' opacity='0.2' rx='6'/%3E%3Cpath d='M 175 40 L 185 60 L 165 60 Z' fill='%234f90e8'/%3E%3Ctext x='110' y='250' font-size='18' fill='%234f90e8' font-weight='bold'%3EMotor Control%3C/text%3E%3Ctext x='280' y='250' font-size='18' fill='%238b7fd8'%3E%26 Steering%3C/text%3E%3C/svg%3E"
-       alt="RC Controlled Car">
-      <div class="project-overlay">
-       <div class="project-overlay-text">
-        <i class="fa-solid fa-click"></i> Click to see details
-       </div>
-      </div>
-     </div>
-     <div class="project-info">
-      <span class="project-category"><i class="fa-solid fa-gamepad"></i> Robotics</span>
-      <h3>RC Controlled Car</h3>
-      <p class="project-description">Wireless remote-controlled robot car with motor control and steering.
-       Demonstrates PWM motor speed control, RF communication, and differential steering. Perfect foundation for
-       robotics learning and experimentation.</p>
-      <div class="skills-tags">
-       <span class="skill-tag">Arduino</span>
-       <span class="skill-tag">Motor Control</span>
-       <span class="skill-tag">Wireless Communication</span>
-       <span class="skill-tag">Robotics Basics</span>
-      </div>
-     </div>
-    </div>
-
-    <!-- Project 5: Emergency Gas Sense & Exit System -->
-    <div class="card project-card" onclick="openModal(4)">
-     <div class="project-media">
-      <img
-       src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad5m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad5m)'/%3E%3Crect x='100' y='70' width='120' height='140' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Ccircle cx='160' cy='140' r='8' fill='%234f90e8' opacity='0.8'/%3E%3Ccircle cx='140' cy='105' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Ccircle cx='155' cy='110' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Crect x='280' y='100' width='140' height='70' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='6'/%3E%3Cline x1='310' y1='115' x2='340' y2='115' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Cline x1='310' y1='150' x2='360' y2='150' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Ctext x='120' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EGas Detection%3C/text%3E%3Ctext x='290' y='250' font-size='16' fill='%238b7fd8'%3EServo-Controlled Exit%3C/text%3E%3C/svg%3E"
-       alt="Emergency Gas Sense & Exit System">
-      <div class="project-overlay">
-       <div class="project-overlay-text">
-        <i class="fa-solid fa-click"></i> Click to see details
-       </div>
-      </div>
-     </div>
-     <div class="project-info">
-      <span class="project-category"><i class="fa-solid fa-triangle-exclamation"></i> IoT Safety</span>
-      <h3>Emergency Gas Sense & Exit System</h3>
-      <p class="project-description">Automated safety system monitoring air quality and triggering emergency protocols.
-       Demonstrates IoT automation in real-world safety applications with automated servo-controlled emergency exits.
-      </p>
-      <div class="skills-tags">
-       <span class="skill-tag">Arduino</span>
-       <span class="skill-tag">Gas Sensors</span>
-       <span class="skill-tag">Automation</span>
-       <span class="skill-tag">Safety Systems</span>
-      </div>
-     </div>
-    </div>
-   </div>
-
-   <!-- More Projects Coming Soon -->
-   <div style="text-align: center; margin-top: 5rem; padding: 3rem; border-top: 1px solid var(--border-color);">
-    <p style="color: var(--text-secondary); font-size: 1.1rem;">
-     <i class="fa-solid fa-flask"></i> More projects coming soon as I continue exploring IoT, Robotics, and Software
-     Development...
-    </p>
-   </div>
   </div>
- </section>
 
- <!-- Project Details Modal -->
- <div id="projectModal" class="modal">
-  <div class="modal-content">
-   <button class="modal-close" onclick="closeModal()">&times;</button>
-   <div id="modalBody"></div>
-  </div>
- </div>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Ishaan Ram. Crafting the future with code and silicon.</p>
+  </footer>
 
- <!-- Footer -->
- <footer>
-  <p>&copy; 2026 Ishaan Ram. Crafting the future with code and silicon.</p>
- </footer>
+  <script>
+    const projectsData = [
+      {
+        id: 0,
+        title: "Robo Sumo Bot",
+        category: "Advanced Robotics - Hardware Design",
+        image: "robosumo.mp4",
+        previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad1)'/%3E%3Ccircle cx='150' cy='150' r='80' fill='%234f90e8' opacity='0.1'/%3E%3Crect x='100' y='100' width='140' height='100' fill='none' stroke='%234f90e8' stroke-width='3' rx='10'/%3E%3Ccircle cx='130' cy='140' r='15' fill='%234f90e8'/%3E%3Ccircle cx='210' cy='140' r='15' fill='%234f90e8'/%3E%3Crect x='105' y='180' width='130' height='8' fill='%234f90e8'/%3E%3Ctext x='250' y='150' font-size='20' fill='%234f90e8' font-weight='bold'%3EGyro-Based%3C/text%3E%3Ctext x='250' y='180' font-size='18' fill='%238b7fd8'%3EHardware Design%3C/text%3E%3C/svg%3E",
+        shortDesc: "Gyro-based sumo robot with advanced hardware design and sensor integration.",
+        longDesc: "A specialized robotics hardware project featuring a gyroscope-stabilized sumo-style fighting robot. This advanced hardware design focuses on balance, structural integrity, and sensor integration for autonomous competitive sumo performance. The project demonstrates expertise in mechanical design, sensor calibration, and robotics hardware engineering.",
+        details: [
+          "Gyroscope-Based Stabilization: Uses MPU-6050 gyro sensor for real-time balance and orientation control",
+          "Advanced Motor Control: Precision motor drivers for synchronized movement with gyro feedback",
+          "Sensor Integration: Ultrasonic and infrared sensors for obstacle detection and opponent tracking",
+          "Mechanical Design: Custom-built chassis optimized for sumo arena performance and durability"
+        ],
+        skills: ["Arduino", "Gyroscope Sensors", "Motor Control", "Mechanical Design", "Hardware Engineering", "Sensor Calibration", "Robotics"],
+        github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
+        techStack: "Arduino • MPU-6050 Gyro • DC Motors • Custom Chassis • Sensor Suite"
+      },
+      {
+        id: 1,
+        title: "Arduino Sleep Buzzer",
+        category: "IoT Hardware & Embedded Systems",
+        image: "buzzer.mp4",
+        previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad3m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad3m)'/%3E%3Crect x='100' y='60' width='120' height='160' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Crect x='120' y='80' width='80' height='100' fill='%234f90e8' opacity='0.2'/%3E%3Ccircle cx='160' cy='130' r='10' fill='%238b7fd8'/%3E%3Crect x='280' y='90' width='140' height='120' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='8'/%3E%3Ctext x='300' y='115' font-size='13' fill='%234f90e8' font-weight='bold'%3EPIR Sensor%3C/text%3E%3Crect x='290' y='135' width='120' height='50' fill='%234f90e8' opacity='0.15' rx='4'/%3E%3Ctext x='295' y='170' font-size='12' fill='%234f90e8'%3EMotion Detection%3C/text%3E%3Ctext x='130' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EArduino%3C/text%3E%3Ctext x='300' y='250' font-size='16' fill='%238b7fd8'%3EAlert System%3C/text%3E%3C/svg%3E",
+        shortDesc: "Intelligent alarm system preventing oversleeping with motion detection.",
+        longDesc: "An innovative IoT project combining Arduino microcontrollers with motion sensors to create an intelligent alarm system. The device automatically triggers alerts when motion is detected, preventing accidental oversleeping with reliable hardware integration.",
+        details: [
+          "PIR Motion Sensor Integration: Detects body movement to trigger alarm mechanisms",
+          "Arduino Uno Programming: Complete firmware in C++ for sensor polling and response logic",
+          "Active Buzzer Control: Multi-tone alert system with adjustable frequency and duration",
+          "Real-Time Response: Instant triggering with minimal latency for reliable wake-up alerts"
+        ],
+        skills: ["Arduino", "C++", "Embedded Systems", "Sensor Integration", "Hardware Programming", "IoT Concepts", "Circuit Design"],
+        github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
+        techStack: "Arduino Uno • PIR Sensors • Active Buzzer • Wiring Diagrams"
+      },
+      {
+        id: 2,
+        title: "IPL Toss Analyzer",
+        category: "Data Analysis & Full-Stack",
+        image: "ipl  (3).jpeg",
+        previewImage: "ipl  (3).jpeg",
+        shortDesc: "Cricket analytics platform analyzing IPL toss decisions and their impact on match outcomes.",
+        longDesc: "A full-stack data analysis project built with Python and web technologies. This application analyzes historical IPL toss data to identify patterns and correlations with match outcomes. Features interactive visualizations, statistical analysis, and predictive insights into toss winning strategies.",
+        details: [
+          "Data Collection: Scraped and compiled historical IPL toss and match outcome data",
+          "Statistical Analysis: Python-based analysis using pandas and numpy for pattern identification",
+          "Web Dashboard: Interactive frontend for data visualization and trend analysis",
+          "Predictive Insights: Machine learning models to forecast toss decision impacts"
+        ],
+        skills: ["Python", "Data Analysis", "Web Development", "HTML/CSS", "JavaScript", "SQL", "Statistics"],
+        github: "https://github.com/Ishaan2008-op/ipl-toss-analyzer",
+        techStack: "Python • Pandas • HTML5 • CSS3 • JavaScript • SQLite"
+      },
+      {
+        id: 3,
+        title: "RC Controlled Car",
+        category: "Robotics Fundamentals",
+        image: "rc car.mp4",
+        previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad4m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad4m)'/%3E%3Crect x='100' y='80' width='250' height='130' fill='none' stroke='%234f90e8' stroke-width='3' rx='12'/%3E%3Ccircle cx='150' cy='160' r='20' fill='%238b7fd8' opacity='0.7'/%3E%3Ccircle cx='280' cy='160' r='20' fill='%234f90e8' opacity='0.7'/%3E%3Crect x='125' y='105' width='150' height='40' fill='%234f90e8' opacity='0.2' rx='6'/%3E%3Cpath d='M 175 40 L 185 60 L 165 60 Z' fill='%234f90e8'/%3E%3Ctext x='110' y='250' font-size='18' fill='%234f90e8' font-weight='bold'%3EMotor Control%3C/text%3E%3Ctext x='280' y='250' font-size='18' fill='%238b7fd8'%3E%26 Steering%3C/text%3E%3C/svg%3E",
+        shortDesc: "Wireless remote-controlled robot car with motor control and steering.",
+        longDesc: "A foundational robotics project designed to teach core principles of robot design and control. This RC car demonstrates wireless communication, motor speed control, and directional steering - essential concepts for robotics development.",
+        details: [
+          "Motor Control Fundamentals: Speed variation using PWM (Pulse Width Modulation) techniques",
+          "Wireless Communication: RF remote control for real-time command transmission",
+          "Directional Steering: Differential motor speeds for turning and navigation",
+          "Learning Platform: Perfect introduction to robotics for beginners and hobbyists"
+        ],
+        skills: ["Arduino", "Motor Control", "C++", "Wireless Communication", "Mechanical Assembly", "Robotics Basics"],
+        github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
+        techStack: "Arduino • DC Motors • RF Transceiver • Chassis & Wheels"
+      },
+      {
+        id: 4,
+        title: "Emergency Gas Sense & Exit System",
+        category: "IoT Safety Applications",
+        image: "basic working gas sense and exit.mp4",
+        previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad5m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad5m)'/%3E%3Crect x='100' y='70' width='120' height='140' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Ccircle cx='160' cy='140' r='8' fill='%234f90e8' opacity='0.8'/%3E%3Ccircle cx='140' cy='105' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Ccircle cx='155' cy='110' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Crect x='280' y='100' width='140' height='70' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='6'/%3E%3Cline x1='310' y1='115' x2='340' y2='115' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Cline x1='310' y1='150' x2='360' y2='150' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Ctext x='120' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EGas Detection%3C/text%3E%3Ctext x='290' y='250' font-size='16' fill='%238b7fd8'%3EServo-Controlled Exit%3C/text%3E%3C/svg%3E",
+        shortDesc: "Automated emergency exit triggered by gas level detection.",
+        longDesc: "A sophisticated IoT safety system that monitors air quality in real-time and automatically activates emergency protocols. When gas PPM values exceed safe thresholds, a servo motor opens an emergency exit, demonstrating practical IoT automation in critical safety applications.",
+        details: [
+          "Gas Sensor Integration: MQ-series gas sensor for continuous PPM monitoring",
+          "Threshold-Based Automation: Automatic trigger when dangerous levels detected",
+          "Servo Motor Control: Precise gate/door control for emergency exit operation",
+          "Real-World Application: Safety-critical system design principles demonstrated"
+        ],
+        skills: ["Arduino", "Gas Sensors", "Servo Motors", "C++", "Automation", "Safety Systems", "IoT Design"],
+        github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
+        techStack: "Arduino • MQ Gas Sensor • Servo Motor • Safety Standards"
+      }
+    ];
 
- <script>
-  const projectsData = [
-   {
-    id: 0,
-    title: "Robo Sumo Bot",
-    category: "Advanced Robotics - Hardware Design",
-    image: "robosumo.mp4",
-    previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad1)'/%3E%3Ccircle cx='150' cy='150' r='80' fill='%234f90e8' opacity='0.1'/%3E%3Crect x='100' y='100' width='140' height='100' fill='none' stroke='%234f90e8' stroke-width='3' rx='10'/%3E%3Ccircle cx='130' cy='140' r='15' fill='%234f90e8'/%3E%3Ccircle cx='210' cy='140' r='15' fill='%234f90e8'/%3E%3Crect x='105' y='180' width='130' height='8' fill='%234f90e8'/%3E%3Ctext x='250' y='150' font-size='20' fill='%234f90e8' font-weight='bold'%3EGyro-Based%3C/text%3E%3Ctext x='250' y='180' font-size='18' fill='%238b7fd8'%3EHardware Design%3C/text%3E%3C/svg%3E",
-    shortDesc: "Gyro-based sumo robot with advanced hardware design and sensor integration.",
-    longDesc: "A specialized robotics hardware project featuring a gyroscope-stabilized sumo-style fighting robot. This advanced hardware design focuses on balance, structural integrity, and sensor integration for autonomous competitive sumo performance. The project demonstrates expertise in mechanical design, sensor calibration, and robotics hardware engineering.",
-    details: [
-     "Gyroscope-Based Stabilization: Uses MPU-6050 gyro sensor for real-time balance and orientation control",
-     "Advanced Motor Control: Precision motor drivers for synchronized movement with gyro feedback",
-     "Sensor Integration: Ultrasonic and infrared sensors for obstacle detection and opponent tracking",
-     "Mechanical Design: Custom-built chassis optimized for sumo arena performance and durability"
-    ],
-    skills: ["Arduino", "Gyroscope Sensors", "Motor Control", "Mechanical Design", "Hardware Engineering", "Sensor Calibration", "Robotics"],
-    github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
-    techStack: "Arduino • MPU-6050 Gyro • DC Motors • Custom Chassis • Sensor Suite"
-   },
-   {
-    id: 1,
-    title: "Arduino Sleep Buzzer",
-    category: "IoT Hardware & Embedded Systems",
-    image: "buzzer.mp4",
-    previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad3m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad3m)'/%3E%3Crect x='100' y='60' width='120' height='160' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Crect x='120' y='80' width='80' height='100' fill='%234f90e8' opacity='0.2'/%3E%3Ccircle cx='160' cy='130' r='10' fill='%238b7fd8'/%3E%3Crect x='280' y='90' width='140' height='120' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='8'/%3E%3Ctext x='300' y='115' font-size='13' fill='%234f90e8' font-weight='bold'%3EPIR Sensor%3C/text%3E%3Crect x='290' y='135' width='120' height='50' fill='%234f90e8' opacity='0.15' rx='4'/%3E%3Ctext x='295' y='170' font-size='12' fill='%234f90e8'%3EMotion Detection%3C/text%3E%3Ctext x='130' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EArduino%3C/text%3E%3Ctext x='300' y='250' font-size='16' fill='%238b7fd8'%3EAlert System%3C/text%3E%3C/svg%3E",
-    shortDesc: "Intelligent alarm system preventing oversleeping with motion detection.",
-    longDesc: "An innovative IoT project combining Arduino microcontrollers with motion sensors to create an intelligent alarm system. The device automatically triggers alerts when motion is detected, preventing accidental oversleeping with reliable hardware integration.",
-    details: [
-     "PIR Motion Sensor Integration: Detects body movement to trigger alarm mechanisms",
-     "Arduino Uno Programming: Complete firmware in C++ for sensor polling and response logic",
-     "Active Buzzer Control: Multi-tone alert system with adjustable frequency and duration",
-     "Real-Time Response: Instant triggering with minimal latency for reliable wake-up alerts"
-    ],
-    skills: ["Arduino", "C++", "Embedded Systems", "Sensor Integration", "Hardware Programming", "IoT Concepts", "Circuit Design"],
-    github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
-    techStack: "Arduino Uno • PIR Sensors • Active Buzzer • Wiring Diagrams"
-   },
-   {
-    id: 2,
-    title: "IPL Toss Analyzer",
-    category: "Data Analysis & Full-Stack",
-    image: "ipl  (3).jpeg",
-    previewImage: "ipl  (3).jpeg",
-    shortDesc: "Cricket analytics platform analyzing IPL toss decisions and their impact on match outcomes.",
-    longDesc: "A full-stack data analysis project built with Python and web technologies. This application analyzes historical IPL toss data to identify patterns and correlations with match outcomes. Features interactive visualizations, statistical analysis, and predictive insights into toss winning strategies.",
-    details: [
-     "Data Collection: Scraped and compiled historical IPL toss and match outcome data",
-     "Statistical Analysis: Python-based analysis using pandas and numpy for pattern identification",
-     "Web Dashboard: Interactive frontend for data visualization and trend analysis",
-     "Predictive Insights: Machine learning models to forecast toss decision impacts"
-    ],
-    skills: ["Python", "Data Analysis", "Web Development", "HTML/CSS", "JavaScript", "SQL", "Statistics"],
-    github: "https://github.com/Ishaan2008-op/ipl-toss-analyzer",
-    techStack: "Python • Pandas • HTML5 • CSS3 • JavaScript • SQLite"
-   },
-   {
-    id: 3,
-    title: "RC Controlled Car",
-    category: "Robotics Fundamentals",
-    image: "rc car.mp4",
-    previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad4m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad4m)'/%3E%3Crect x='100' y='80' width='250' height='130' fill='none' stroke='%234f90e8' stroke-width='3' rx='12'/%3E%3Ccircle cx='150' cy='160' r='20' fill='%238b7fd8' opacity='0.7'/%3E%3Ccircle cx='280' cy='160' r='20' fill='%234f90e8' opacity='0.7'/%3E%3Crect x='125' y='105' width='150' height='40' fill='%234f90e8' opacity='0.2' rx='6'/%3E%3Cpath d='M 175 40 L 185 60 L 165 60 Z' fill='%234f90e8'/%3E%3Ctext x='110' y='250' font-size='18' fill='%234f90e8' font-weight='bold'%3EMotor Control%3C/text%3E%3Ctext x='280' y='250' font-size='18' fill='%238b7fd8'%3E%26 Steering%3C/text%3E%3C/svg%3E",
-    shortDesc: "Wireless remote-controlled robot car with motor control and steering.",
-    longDesc: "A foundational robotics project designed to teach core principles of robot design and control. This RC car demonstrates wireless communication, motor speed control, and directional steering - essential concepts for robotics development.",
-    details: [
-     "Motor Control Fundamentals: Speed variation using PWM (Pulse Width Modulation) techniques",
-     "Wireless Communication: RF remote control for real-time command transmission",
-     "Directional Steering: Differential motor speeds for turning and navigation",
-     "Learning Platform: Perfect introduction to robotics for beginners and hobbyists"
-    ],
-    skills: ["Arduino", "Motor Control", "C++", "Wireless Communication", "Mechanical Assembly", "Robotics Basics"],
-    github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
-    techStack: "Arduino • DC Motors • RF Transceiver • Chassis & Wheels"
-   },
-   {
-    id: 4,
-    title: "Emergency Gas Sense & Exit System",
-    category: "IoT Safety Applications",
-    image: "basic working gas sense and exit.mp4",
-    previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad5m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad5m)'/%3E%3Crect x='100' y='70' width='120' height='140' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Ccircle cx='160' cy='140' r='8' fill='%234f90e8' opacity='0.8'/%3E%3Ccircle cx='140' cy='105' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Ccircle cx='155' cy='110' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Crect x='280' y='100' width='140' height='70' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='6'/%3E%3Cline x1='310' y1='115' x2='340' y2='115' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Cline x1='310' y1='150' x2='360' y2='150' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Ctext x='120' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EGas Detection%3C/text%3E%3Ctext x='290' y='250' font-size='16' fill='%238b7fd8'%3EServo-Controlled Exit%3C/text%3E%3C/svg%3E",
-    shortDesc: "Automated emergency exit triggered by gas level detection.",
-    longDesc: "A sophisticated IoT safety system that monitors air quality in real-time and automatically activates emergency protocols. When gas PPM values exceed safe thresholds, a servo motor opens an emergency exit, demonstrating practical IoT automation in critical safety applications.",
-    details: [
-     "Gas Sensor Integration: MQ-series gas sensor for continuous PPM monitoring",
-     "Threshold-Based Automation: Automatic trigger when dangerous levels detected",
-     "Servo Motor Control: Precise gate/door control for emergency exit operation",
-     "Real-World Application: Safety-critical system design principles demonstrated"
-    ],
-    skills: ["Arduino", "Gas Sensors", "Servo Motors", "C++", "Automation", "Safety Systems", "IoT Design"],
-    github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
-    techStack: "Arduino • MQ Gas Sensor • Servo Motor • Safety Standards"
-   }
-  ];
+    function openModal(projectIndex) {
+      const project = projectsData[projectIndex];
+      const modalBody = document.getElementById('modalBody');
 
-  function openModal(projectIndex) {
-   const project = projectsData[projectIndex];
-   const modalBody = document.getElementById('modalBody');
+      let detailsHTML = project.details.map(detail => `<li>${detail}</li>`).join('');
+      let skillsHTML = project.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('');
 
-   let detailsHTML = project.details.map(detail => `<li>${detail}</li>`).join('');
-   let skillsHTML = project.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('');
+      // Check if the image is actually a video file
+      const isVideo = project.image && (project.image.endsWith('.mp4') || project.image.endsWith('.webm'));
 
-   // Check if the image is actually a video file
-   const isVideo = project.image && (project.image.endsWith('.mp4') || project.image.endsWith('.webm'));
-
-   let mediaHTML = '';
-   if (isVideo) {
-    mediaHTML = `
+      let mediaHTML = '';
+      if (isVideo) {
+        mediaHTML = `
      <div class="modal-header-image" style="background: #000; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
       <video controls controlsList="nodownload" style="width: 100%; height: auto; max-height: 500px; border-radius: 8px; display: block;" preload="metadata">
        <source src="${project.image}" type="video/mp4">
@@ -702,13 +707,13 @@
       </video>
      </div>
     `;
-   } else {
-    mediaHTML = `<div class="modal-header-image">
+      } else {
+        mediaHTML = `<div class="modal-header-image">
       <img src="${project.image}" alt="${project.title}" style="border-radius: 8px;">
      </div>`;
-   }
+      }
 
-   modalBody.innerHTML = `
+      modalBody.innerHTML = `
         <div class="modal-header">
           ${mediaHTML}
           <div class="modal-header-info">
@@ -756,29 +761,29 @@
         </div>
       `;
 
-   document.getElementById('projectModal').classList.add('active');
-   document.body.style.overflow = 'hidden';
-  }
+      document.getElementById('projectModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
 
-  function closeModal() {
-   document.getElementById('projectModal').classList.remove('active');
-   document.body.style.overflow = 'auto';
-  }
+    function closeModal() {
+      document.getElementById('projectModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
 
-  // Close modal when clicking outside
-  document.getElementById('projectModal').addEventListener('click', function (event) {
-   if (event.target === this) {
-    closeModal();
-   }
-  });
+    // Close modal when clicking outside
+    document.getElementById('projectModal').addEventListener('click', function (event) {
+      if (event.target === this) {
+        closeModal();
+      }
+    });
 
-  // Close modal with Escape key
-  document.addEventListener('keydown', function (event) {
-   if (event.key === 'Escape') {
-    closeModal();
-   }
-  });
- </script>
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 
 

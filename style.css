@@ -6,16 +6,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
 
 :root {
-    --bg-color: #000000;
-    --card-bg: rgba(15, 15, 15, 0.8);
-    --text-primary: #ffffff;
-    --text-secondary: #cccccc;
-    --accent-blue: #b8ff00;
-    --accent-violet: #a3ff00;
-    --border-color: rgba(184, 255, 0, 0.2);
-    --glass-border: rgba(184, 255, 0, 0.1);
-    --shadow: none;
+    --bg-color: #051f14;
+    --card-bg: rgba(7, 45, 28, 0.85);
+    --text-primary: #e0f8e9;
+    --text-secondary: #8ab89f;
+    --accent-blue: #39ff14;
+    --accent-violet: #ffd700;
+    --border-color: rgba(57, 255, 20, 0.4);
+    --glass-border: rgba(255, 215, 0, 0.2);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --accent-blue-rgb: 57, 255, 20;
+    --accent-violet-rgb: 255, 215, 0;
 }
 
 * {
@@ -30,9 +32,13 @@ html {
 
 body {
     background-color: var(--bg-color);
-    color: var(--text-primary);
-    font-family: 'Outfit', sans-serif;
-    line-height: 1.6;
+    background-image:
+        linear-gradient(rgba(255, 215, 0, 0.15) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 215, 0, 0.15) 2px, transparent 2px),
+        linear-gradient(rgba(57, 255, 20, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 255, 20, 0.05) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
     overflow-x: hidden;
 }
 
@@ -42,12 +48,15 @@ h2,
 h3 {
     letter-spacing: -0.02em;
     line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #ffffff;
 }
 
 h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
+
 }
 
 h2 {
@@ -109,7 +118,7 @@ nav {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(7, 45, 28, 0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
     display: flex;
@@ -273,7 +282,7 @@ nav a:hover {
     content: '▶';
     position: absolute;
     font-size: 3rem;
-    color: rgba(184, 255, 0, 0.8);
+    color: rgba(var(--accent-blue-rgb), 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -327,7 +336,7 @@ nav a:hover {
 }
 
 .contact-item:hover {
-    background: rgba(184, 255, 0, 0.1);
+    background: rgba(var(--accent-blue-rgb), 0.1);
     border-color: var(--accent-blue);
 }
 
@@ -359,7 +368,7 @@ nav a:hover {
 
 .cta-content {
     padding: 4rem !important;
-    background: linear-gradient(135deg, rgba(184, 255, 0, 0.08), rgba(163, 255, 0, 0.08));
+    background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.08), rgba(var(--accent-violet-rgb), 0.08));
     border: 2px solid var(--accent-blue) !important;
 }
 
