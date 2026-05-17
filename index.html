@@ -35,24 +35,20 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-content">
-        <p style="color: var(--accent-blue); font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Welcome
-        </p>
+        <span class="hero-subtitle">Welcome</span>
         <h1>ISHAAN HERE</h1>
-        <p style="font-size: 1.2rem;">Electronics & Computer Science Student dedicated to building the future through
+        <p>Electronics & Computer Science Student dedicated to building the future through
           <strong>Robotics, IoT, and Full-Stack Development</strong>.
         </p>
       </div>
       <div class="hero-image">
-        <div
-          style="position: absolute; width: 350px; height: 350px; background: var(--accent-blue); border-radius: 50%; opacity: 0.1; filter: blur(100px); pointer-events: none;">
-        </div>
         <img src="icon.jpeg" alt="Ishaan Ram Profile Photo">
       </div>
     </section>
 
     <!-- About Me Section -->
     <section id="about-me">
-      <div class="card" style="padding: 3rem;">
+      <div class="card">
         <h2>About Me</h2>
         <p>I'm a <strong>builder</strong>. I create solutions at the intersection of hardware and software - from IoT
           automation and robotics to full-stack applications. My focus is on turning ideas into
@@ -66,31 +62,38 @@
 
     <!-- Education & Skills Section -->
     <section id="education-skills">
-      <h2>Education & Skills</h2>
+      <h2>Skills & Expertise</h2>
+      
+      <h3 style="margin-bottom: 2rem; color: var(--text-secondary); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.1em;">Core Skills</h3>
+      <div class="skills-grid" style="margin-bottom: 4rem;">
+        <div class="card skill-item">
+          <i class="fa-solid fa-microchip" style="color: var(--accent-blue);"></i>
+          <h3>Hardware Integration for Robotics</h3>
+          <p>Integrating various electronic components, motors, and sensors to build physical working prototypes and functional robots.</p>
+        </div>
+        <div class="card skill-item">
+          <i class="fa-brands fa-python" style="color: var(--accent-blue);"></i>
+          <h3>Python</h3>
+          <p>Programming functional logic for data analysis, backend processes, and bringing hardware projects to life.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: 2rem; color: var(--text-secondary); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.1em;">Currently Learning</h3>
       <div class="skills-grid">
         <div class="card skill-item">
-          <i class="fa-solid fa-car-side" style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 1rem;"></i>
-          <h3>Hardware Integration</h3>
-          <p>Integrating various electronic components, motors, and sensors to build physical working prototypes,
-            including a custom-built RC car.</p>
+          <i class="fa-solid fa-cubes" style="color: var(--accent-blue);"></i>
+          <h3>CAD (Onshape)</h3>
+          <p>Developing experience with Computer-Aided Design for planning, modeling, and prototyping physical parts for electronics.</p>
         </div>
         <div class="card skill-item">
-          <i class="fa-solid fa-microchip" style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 1rem;"></i>
-          <h3>Embedded C & Python</h3>
-          <p>Programming functional logic for microcontrollers and embedded devices using C and Python to bring hardware
-            projects to life.</p>
+          <i class="fa-solid fa-c" style="color: var(--accent-blue);"></i>
+          <h3>Embedded C</h3>
+          <p>Expanding my foundational knowledge of programming microcontrollers at a lower level to optimize hardware performance.</p>
         </div>
         <div class="card skill-item">
-          <i class="fa-solid fa-cubes" style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 1rem;"></i>
-          <h3>Basic CAD (3D Design)</h3>
-          <p>Fundamental experience with Computer-Aided Design (CAD) for planning, modeling, and prototyping physical
-            parts for electronics and robotics setups.</p>
-        </div>
-        <div class="card skill-item">
-          <i class="fa-solid fa-robot" style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 1rem;"></i>
-          <h3>Robotics Assembly</h3>
-          <p>Focusing on the practical assembly of mechanics and electronics to solve concrete problems and build fun,
-            functional robots.</p>
+          <i class="fa-solid fa-code" style="color: var(--accent-blue);"></i>
+          <h3>Web Development</h3>
+          <p>Building on my basic knowledge of modern web technologies to create full-stack applications and dashboards.</p>
         </div>
       </div>
     </section>
@@ -108,10 +111,10 @@
     <!-- Contact Section -->
     <section id="contact">
       <h2>Get In Touch</h2>
-      <div style="text-align: center; margin-bottom: 2rem;">
-        <p style="margin-bottom: 2rem; font-size: 1.1rem;">Let's connect and discuss your next project!</p>
+      <div class="contact-container" style="text-align: center;">
+        <p style="margin-bottom: 2rem;">Let's connect and discuss your next project!</p>
         <a href="https://www.linkedin.com/in/ishaan-ram-808373379?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-          target="_blank" class="btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+          target="_blank" class="btn-primary">
           Connect on LinkedIn <i class="fa-brands fa-linkedin"></i>
         </a>
       </div>
@@ -151,51 +154,54 @@
         const heroImage = document.querySelector('.hero-image');
 
         if (heroContent) {
-          gsap.from(heroContent, {
+          gsap.from(heroContent.children, {
             opacity: 0,
-            x: -60,
-            duration: 1.2,
+            y: 40,
+            duration: 1.5,
+            stagger: 0.2,
             ease: 'power3.out',
-            delay: 2.6
+            delay: 1.8
           });
         }
 
         if (heroImage) {
           gsap.from(heroImage, {
             opacity: 0,
-            x: 60,
-            duration: 1.2,
+            scale: 0.95,
+            y: 40,
+            duration: 2,
             ease: 'power3.out',
-            delay: 2.6
+            delay: 2.2
           });
         }
 
-        // Skill cards entrance with stagger
+        // Skill cards entrance
         const skillCards = document.querySelectorAll('.skill-item');
-        gsap.from(skillCards, {
-          opacity: 0,
-          y: 60,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '.skills-grid',
-            start: 'top 75%',
-            toggleActions: 'play none none none'
-          }
+        skillCards.forEach((card) => {
+          gsap.from(card, {
+            opacity: 0,
+            y: 40,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 90%',
+              toggleActions: 'play none none none'
+            }
+          });
         });
 
         // Section headings reveal
         const sectionHeadings = document.querySelectorAll('section h2');
-        sectionHeadings.forEach((heading, index) => {
+        sectionHeadings.forEach((heading) => {
           gsap.from(heading, {
             opacity: 0,
             y: 30,
-            duration: 0.8,
+            duration: 1,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: heading,
-              start: 'top 85%',
+              start: 'top 90%',
               toggleActions: 'play none none none'
             }
           });
@@ -207,10 +213,10 @@
           gsap.from(aboutCard, {
             opacity: 0,
             y: 40,
-            duration: 0.8,
+            duration: 1.2,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: aboutCard,
+              trigger: '#about-me',
               start: 'top 80%',
               toggleActions: 'play none none none'
             }
@@ -222,11 +228,11 @@
         if (ctaCard) {
           gsap.from(ctaCard, {
             opacity: 0,
-            y: 50,
-            duration: 1,
+            y: 40,
+            duration: 1.2,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: ctaCard,
+              trigger: '#projects-cta',
               start: 'top 75%',
               toggleActions: 'play none none none'
             }
@@ -236,11 +242,11 @@
         // Smooth parallax on scroll for hero image
         if (heroImage) {
           gsap.to(heroImage, {
-            y: 100,
+            y: 80,
             scrollTrigger: {
               trigger: '.hero',
               start: 'top top',
-              end: 'bottom center',
+              end: 'bottom top',
               scrub: 1.5,
               markers: false
             }
@@ -253,11 +259,11 @@
           gsap.from(footer, {
             opacity: 0,
             y: 30,
-            duration: 0.8,
+            duration: 1,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: footer,
-              start: 'top 90%',
+              start: 'top 95%',
               toggleActions: 'play none none none'
             }
           });
