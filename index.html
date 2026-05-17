@@ -11,6 +11,7 @@
 </head>
 
 <body class="loading">
+  <canvas id="bg-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
   <div id="loader" class="loader-screen" aria-live="polite">
     <div class="loader-inner">
       <h1>Hi</h1>
@@ -121,6 +122,9 @@
     <p>&copy; 2026 Ishaan Ram. Crafting the future with code and silicon.</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="3d-scene.js"></script>
+
   <script>
     const loader = document.getElementById('loader');
     setTimeout(function () {
@@ -130,6 +134,160 @@
         loader.remove();
       }, 600);
     }, 2500);
+
+    // ========== PREMIUM CINEMATIC ANIMATIONS WITH GSAP ==========
+    const gaspScript = document.createElement('script');
+    gaspScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
+    document.head.appendChild(gaspScript);
+
+    const scrollTriggerScript = document.createElement('script');
+    scrollTriggerScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js';
+    scrollTriggerScript.onload = function () {
+      if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero section staggered animation
+        const heroContent = document.querySelector('.hero-content');
+        const heroImage = document.querySelector('.hero-image');
+
+        if (heroContent) {
+          gsap.from(heroContent, {
+            opacity: 0,
+            x: -60,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 2.6
+          });
+        }
+
+        if (heroImage) {
+          gsap.from(heroImage, {
+            opacity: 0,
+            x: 60,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 2.6
+          });
+        }
+
+        // Skill cards entrance with stagger
+        const skillCards = document.querySelectorAll('.skill-item');
+        gsap.from(skillCards, {
+          opacity: 0,
+          y: 60,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.skills-grid',
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
+        });
+
+        // Section headings reveal
+        const sectionHeadings = document.querySelectorAll('section h2');
+        sectionHeadings.forEach((heading, index) => {
+          gsap.from(heading, {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: heading,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+
+        // About section paragraph animation
+        const aboutCard = document.querySelector('#about-me .card');
+        if (aboutCard) {
+          gsap.from(aboutCard, {
+            opacity: 0,
+            y: 40,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: aboutCard,
+              start: 'top 80%',
+              toggleActions: 'play none none none'
+            }
+          });
+        }
+
+        // CTA card with subtle pulse
+        const ctaCard = document.querySelector('.cta-content');
+        if (ctaCard) {
+          gsap.from(ctaCard, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: ctaCard,
+              start: 'top 75%',
+              toggleActions: 'play none none none'
+            }
+          });
+        }
+
+        // Smooth parallax on scroll for hero image
+        if (heroImage) {
+          gsap.to(heroImage, {
+            y: 100,
+            scrollTrigger: {
+              trigger: '.hero',
+              start: 'top top',
+              end: 'bottom center',
+              scrub: 1.5,
+              markers: false
+            }
+          });
+        }
+
+        // Smooth footer animation
+        const footer = document.querySelector('footer');
+        if (footer) {
+          gsap.from(footer, {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: footer,
+              start: 'top 90%',
+              toggleActions: 'play none none none'
+            }
+          });
+        }
+      }
+    };
+    document.head.appendChild(scrollTriggerScript);
+
+    // Premium button interactions
+    document.querySelectorAll('.btn-primary').forEach(button => {
+      button.addEventListener('mouseenter', function () {
+        if (typeof gsap !== 'undefined') {
+          gsap.to(this, {
+            scale: 1.05,
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+        }
+      });
+
+      button.addEventListener('mouseleave', function () {
+        if (typeof gsap !== 'undefined') {
+          gsap.to(this, {
+            scale: 1,
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+        }
+      });
+    });
   </script>
 
 </body>

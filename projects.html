@@ -8,43 +8,58 @@
   <link rel="stylesheet" href="style.css?v=7">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --card-bg: rgba(20, 20, 20, 0.75);
+      --text-primary: #f5f5f5;
+      --text-secondary: #a0a0a0;
+      --accent-blue: #10b981;
+      --accent-violet: #d4af37;
+      --border-color: rgba(100, 100, 100, 0.15);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --accent-blue-rgb: 16, 185, 129;
+      --accent-violet-rgb: 212, 175, 55;
+    }
+
     .projects-page-hero {
       text-align: center;
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.05), rgba(var(--accent-violet-rgb), 0.05));
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.03), rgba(var(--accent-violet-rgb), 0.02));
       margin-top: 5rem;
     }
 
     .projects-page-hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+      font-weight: 700;
+      letter-spacing: -0.03em;
     }
 
     .projects-page-hero p {
       font-size: 1.1rem;
       color: var(--text-secondary);
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto;
+      line-height: 1.8;
+      letter-spacing: 0.01em;
     }
 
     .projects-section {
-      padding: 4rem 2rem;
+      padding: 6rem 2rem;
     }
 
     .projects-container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
     }
 
     .project-card {
@@ -55,16 +70,24 @@
       height: 100%;
       cursor: pointer;
       position: relative;
+      background: rgba(20, 20, 20, 0.6);
+      border: 1px solid rgba(100, 100, 100, 0.1);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .project-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-12px);
+      border-color: rgba(16, 185, 129, 0.3);
+      background: rgba(30, 30, 30, 0.8);
+      box-shadow: 0 40px 100px rgba(16, 185, 129, 0.1);
     }
 
     .project-media {
       width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #1a2332, #252c3c);
+      height: 260px;
+      background: linear-gradient(135deg, rgba(20, 20, 20, 0.8), rgba(30, 30, 30, 0.8));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -76,12 +99,19 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .project-media video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .project-card:hover .project-media img,
+    .project-card:hover .project-media video {
+      transform: scale(1.08);
     }
 
     .project-overlay {
@@ -90,12 +120,13 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      backdrop-filter: blur(2px);
     }
 
     .project-card:hover .project-overlay {
@@ -103,16 +134,17 @@
     }
 
     .project-overlay-text {
-      color: white;
-      font-weight: 600;
+      color: #ffffff;
+      font-weight: 700;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
+      gap: 0.7rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
     }
 
     .project-info {
-      padding: 1.8rem;
+      padding: 2rem;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -120,30 +152,35 @@
 
     .project-category {
       display: inline-block;
-      background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.2), rgba(var(--accent-violet-rgb), 0.2));
-      padding: 0.4rem 0.9rem;
-      border-radius: 20px;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
       font-size: 0.75rem;
       color: var(--accent-blue);
-      margin-bottom: 0.8rem;
-      font-weight: 600;
+      margin-bottom: 1rem;
+      font-weight: 700;
       width: fit-content;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: 1px solid rgba(16, 185, 129, 0.2);
     }
 
     .project-info h3 {
-      color: var(--accent-blue);
+      color: #ffffff;
       margin-bottom: 0.8rem;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
     .project-description {
       flex: 1;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.7;
       font-size: 0.95rem;
       display: -webkit-box;
-      -webkit-line-clamp: 4;
+      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -151,18 +188,25 @@
     .skills-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.7rem;
       margin-top: auto;
     }
 
     .skill-tag {
-      background: rgba(79, 144, 232, 0.1);
-      border: 1px solid var(--border-color);
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
       color: var(--accent-blue);
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
+      padding: 0.45rem 0.9rem;
+      border-radius: 5px;
       font-size: 0.8rem;
-      font-weight: 500;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      letter-spacing: 0.01em;
+    }
+
+    .skill-tag:hover {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.4);
     }
 
     /* Modal Styles */
@@ -174,9 +218,10 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(5px);
-      animation: fadeIn 0.3s ease;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      animation: fadeIn 0.4s ease;
     }
 
     .modal.active {
@@ -186,76 +231,85 @@
     }
 
     .modal-content {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      max-width: 900px;
+      background: rgba(20, 20, 20, 0.8);
+      border: 1px solid rgba(100, 100, 100, 0.15);
+      border-radius: 12px;
+      max-width: 950px;
       max-height: 90vh;
       overflow-y: auto;
       width: 90%;
-      padding: 2rem;
+      padding: 2.5rem;
       position: relative;
-      box-shadow: var(--shadow);
-      animation: slideUp 0.3s ease;
+      box-shadow: 0 60px 120px rgba(0, 0, 0, 0.9);
+      animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .modal-close {
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
-      background: rgba(79, 144, 232, 0.2);
-      border: none;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
       color: var(--accent-blue);
       font-size: 1.5rem;
       cursor: pointer;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: var(--transition);
+      transition: all 0.3s ease;
     }
 
     .modal-close:hover {
-      background: rgba(79, 144, 232, 0.4);
+      background: rgba(16, 185, 129, 0.2);
+      border-color: rgba(16, 185, 129, 0.4);
     }
 
     .modal-header {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .modal-header-image {
-      width: 120px;
-      height: 120px;
-      border-radius: 12px;
+      width: 140px;
+      height: 140px;
+      border-radius: 8px;
       overflow: hidden;
       flex-shrink: 0;
+      border: 1px solid rgba(16, 185, 129, 0.2);
     }
 
     .modal-header-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 8px;
     }
 
     .modal-header-info h2 {
       margin: 0 0 0.5rem 0;
-      font-size: 1.8rem;
+      font-size: 2rem;
+      font-weight: 700;
     }
 
     .modal-category-full {
       display: inline-block;
-      background: linear-gradient(135deg, rgba(var(--accent-blue-rgb), 0.3), rgba(var(--accent-violet-rgb), 0.3));
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
       font-size: 0.85rem;
       color: var(--accent-blue);
-      margin-bottom: 0.5rem;
-      font-weight: 600;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
     .modal-details {
@@ -263,28 +317,33 @@
     }
 
     .modal-details h3 {
-      color: var(--accent-blue);
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 1.2rem;
+      font-size: 1.3rem;
+      font-weight: 700;
     }
 
     .modal-details p {
       line-height: 1.8;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      color: var(--text-secondary);
     }
 
     .modal-features {
-      background: rgba(79, 144, 232, 0.05);
-      padding: 1.5rem;
-      border-radius: 10px;
-      border-left: 4px solid var(--accent-blue);
-      margin-bottom: 1.5rem;
+      background: rgba(16, 185, 129, 0.05);
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent-blue);
+      margin-bottom: 2rem;
+      border: 1px solid rgba(16, 185, 129, 0.1);
+      border-left: 3px solid var(--accent-blue);
     }
 
     .modal-features h4 {
-      color: var(--accent-blue);
-      margin-bottom: 0.8rem;
-      font-size: 1rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 700;
     }
 
     .modal-features ul {
@@ -293,65 +352,78 @@
     }
 
     .modal-features li {
-      padding: 0.4rem 0;
+      padding: 0.6rem 0;
       display: flex;
-      align-items: center;
-      gap: 0.6rem;
+      align-items: flex-start;
+      gap: 0.8rem;
+      line-height: 1.6;
     }
 
     .modal-features li:before {
       content: "▸";
       color: var(--accent-blue);
       font-weight: bold;
+      flex-shrink: 0;
     }
 
     .modal-skills-full {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
+      gap: 1rem;
     }
 
     .skill-badge {
-      background: linear-gradient(135deg, rgba(79, 144, 232, 0.15), rgba(139, 127, 216, 0.15));
-      border: 1px solid var(--accent-blue);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
       color: var(--accent-blue);
-      padding: 0.6rem 1.2rem;
-      border-radius: 20px;
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
       font-size: 0.9rem;
       font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .skill-badge:hover {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.4);
     }
 
     .modal-links {
       display: flex;
-      gap: 1rem;
+      gap: 1.2rem;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
     }
 
     .modal-link-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
-      color: white;
-      padding: 0.8rem 1.6rem;
-      border-radius: 8px;
+      gap: 0.7rem;
+      background: var(--accent-blue);
+      color: #000;
+      padding: 1rem 2rem;
+      border-radius: 6px;
       text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
+      font-weight: 700;
+      transition: all 0.3s ease;
       border: none;
       cursor: pointer;
+      letter-spacing: 0.02em;
     }
 
     .modal-link-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(79, 144, 232, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(16, 185, 129, 0.3);
     }
 
     .modal-link-btn.secondary {
       background: transparent;
       border: 2px solid var(--accent-blue);
       color: var(--accent-blue);
+    }
+
+    .modal-link-btn.secondary:hover {
+      background: rgba(16, 185, 129, 0.1);
     }
 
     @keyframes fadeIn {
@@ -367,7 +439,7 @@
     @keyframes slideUp {
       from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(40px);
       }
 
       to {
@@ -378,20 +450,21 @@
 
     @media (max-width: 768px) {
       .projects-page-hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       .projects-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
       }
 
       .project-media {
-        height: 180px;
+        height: 200px;
       }
 
       .modal-content {
         width: 95%;
-        padding: 1.5rem;
+        padding: 2rem;
       }
 
       .modal-header {
@@ -400,8 +473,12 @@
       }
 
       .modal-header-image {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
+      }
+
+      .modal-header-info h2 {
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -783,6 +860,72 @@
         closeModal();
       }
     });
+
+    // ========== CINEMATIC ANIMATIONS WITH GSAP ==========
+    // Load GSAP and ScrollTrigger
+    const script1 = document.createElement('script');
+    script1.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
+    document.head.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js';
+    script2.onload = function () {
+      // Initialize animations after GSAP loads
+      if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Cinematic card entrance animations
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card, index) => {
+          gsap.from(card, {
+            opacity: 0,
+            y: 80,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+
+        // Hero section stagger animation
+        gsap.from('.projects-page-hero h1', {
+          opacity: 0,
+          y: 40,
+          duration: 1,
+          ease: 'power3.out'
+        });
+
+        gsap.from('.projects-page-hero p', {
+          opacity: 0,
+          y: 20,
+          duration: 0.8,
+          delay: 0.2,
+          ease: 'power3.out'
+        });
+
+        // Smooth parallax on project media on scroll
+        projectCards.forEach(card => {
+          const media = card.querySelector('.project-media img') || card.querySelector('.project-media video');
+          if (media) {
+            gsap.to(media, {
+              y: 30,
+              scrollTrigger: {
+                trigger: card,
+                start: 'top center',
+                end: 'bottom center',
+                scrub: 1,
+                markers: false
+              }
+            });
+          }
+        });
+      }
+    };
+    document.head.appendChild(script2);
   </script>
 </body>
 

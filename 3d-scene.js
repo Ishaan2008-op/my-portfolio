@@ -1,5 +1,5 @@
 
-// Three.js Scene Setup
+// Three.js Premium Atmospheric Scene
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({
@@ -10,87 +10,108 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x0a0a0a, 1);
 camera.position.setZ(30);
 
-// Background Particles (Starfield)
-function addStars() {
- const geometry = new THREE.SphereGeometry(0.12, 12, 12);
- const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
- const star = new THREE.Mesh(geometry, material);
+// Premium Lighting Setup
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.15);
+scene.add(ambientLight);
 
- // Distributed in a much larger and deeper volume for the space theme
- const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(1000));
- star.position.set(x, y, z);
- scene.add(star);
+const pointLight1 = new THREE.PointLight(0x10b981, 0.8);
+pointLight1.position.set(50, 50, 50);
+scene.add(pointLight1);
+
+const pointLight2 = new THREE.PointLight(0xd4af37, 0.4);
+pointLight2.position.set(-50, -50, 30);
+scene.add(pointLight2);
+
+// Fog for atmospheric depth
+const fog = new THREE.Fog(0x0a0a0a, 100, 200);
+scene.fog = fog;
+
+// Subtle Floating Particles
+function createParticleField() {
+ const particleCount = 200;
+ const geometry = new THREE.BufferGeometry();
+ const positions = new Float32Array(particleCount * 3);
+ const sizes = new Float32Array(particleCount);
+ 
+ for (let i = 0; i < particleCount * 3; i += 3) {
+  positions[i] = (Math.random() - 0.5) * 200;
+  positions[i + 1] = (Math.random() - 0.5) * 200;
+  positions[i + 2] = (Math.random() - 0.5) * 200;
+  sizes[i / 3] = Math.random() * 2 + 0.5;
+ }
+ 
+ geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+ geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+ 
+ const material = new THREE.PointsMaterial({
+  color: 0x10b981,
+  size: 0.5,
+  transparent: true,
+  opacity: 0.15,
+  sizeAttenuation: true
+ });
+ 
+ const particles = new THREE.Points(geometry, material);
+ scene.add(particles);
+ return particles;
 }
-Array(5000).fill().forEach(addStars);
 
-// Lights
-const pointLight = new THREE.PointLight(0xffffff, 2);
-pointLight.position.set(50, 50, 50);
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-scene.add(pointLight, ambientLight);
+const particles = createParticleField();
 
-// Floating Octahedron (Kept from original)
-const octaGeometry = new THREE.OctahedronGeometry(10, 0);
-const octaMaterial = new THREE.MeshStandardMaterial({
- color: 0x58a6ff,
- wireframe: true,
+// Subtle Floating Geometry (Architectural Element)
+const sphereGeometry = new THREE.IcosahedronGeometry(8, 4);
+const sphereMaterial = new THREE.MeshPhongMaterial({
+ color: 0x10b981,
+ wireframe: false,
  transparent: true,
- opacity: 0.2
+ opacity: 0.05,
+ emissive: 0x10b981,
+ emissiveIntensity: 0.2
 });
-const octa = new THREE.Mesh(octaGeometry, octaMaterial);
-octa.position.set(0, 0, -20);
-scene.add(octa);
+const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+sphere.position.set(0, 0, -50);
+scene.add(sphere);
 
-// Floating Torus (Kept from original)
-const torusGeometry = new THREE.TorusGeometry(15, 0.1, 16, 100);
-const torusMaterial = new THREE.MeshStandardMaterial({
- color: 0xbc8cff,
- wireframe: true,
- transparent: true,
- opacity: 0.1
-});
-const torus = new THREE.Mesh(torusGeometry, torusMaterial);
-torus.position.set(0, 0, -50);
-scene.add(torus);
-
-// Mouse Interaction (Parallax)
+// Mouse Interaction (Subtle Parallax)
 let mouseX = 0;
 let mouseY = 0;
+let targetMouseX = 0;
+let targetMouseY = 0;
 
 document.addEventListener('mousemove', (event) => {
- mouseX = (event.clientX - window.innerWidth / 2) / 200;
- mouseY = (event.clientY - window.innerHeight / 2) / 200;
+ targetMouseX = (event.clientX - window.innerWidth / 2) * 0.0001;
+ targetMouseY = (event.clientY - window.innerHeight / 2) * 0.0001;
 });
 
-// Direct Continuous Scroll Mapping (Linear Space Travel)
+// Smooth Scroll Camera Movement
 function moveCamera() {
  const t = window.scrollY;
-
- // Smoothly push camera forward into the stars
- camera.position.z = 30 - (t * 0.05);
- camera.position.x = t * -0.0001;
- camera.rotation.y = t * -0.0001;
-
- // Rotate the hero shapes slowly
- octa.rotation.x += 0.02;
- octa.rotation.y += 0.02;
+ camera.position.z = 30 - (t * 0.02);
+ camera.position.x = t * -0.00005;
 }
 window.addEventListener('scroll', moveCamera);
 
-// Animation Loop
+// Animation Loop with Smooth Motion
 function animate() {
  requestAnimationFrame(animate);
-
- // Constant subtle rotation for life
- torus.rotation.x += 0.001;
- torus.rotation.y += 0.001;
-
- // Smooth Mouse Parallax
- scene.rotation.y += (mouseX - scene.rotation.y) * 0.03;
- scene.rotation.x += (mouseY - scene.rotation.x) * 0.03;
-
+ 
+ // Smooth mouse parallax
+ mouseX += (targetMouseX - mouseX) * 0.08;
+ mouseY += (targetMouseY - mouseY) * 0.08;
+ 
+ scene.rotation.y += (mouseX - scene.rotation.y) * 0.05;
+ scene.rotation.x += (mouseY - scene.rotation.x) * 0.05;
+ 
+ // Slow sphere rotation
+ sphere.rotation.x += 0.0001;
+ sphere.rotation.y += 0.00015;
+ 
+ // Slow particle movement
+ particles.rotation.y += 0.00005;
+ 
  renderer.render(scene, camera);
 }
 
