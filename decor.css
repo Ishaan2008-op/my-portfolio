@@ -1,0 +1,7 @@
+/* Final placement of the on-scroll workshop cutouts. */
+.ambient-art{z-index:0}
+.arm-art{width:430px;height:560px;right:-125px;top:10px;opacity:.32;mix-blend-mode:normal;transform:scaleX(-1) rotate(-5deg)}
+.arm-art img{width:100%;max-width:100%;height:100%;object-fit:contain;transform:none;filter:brightness(.62) saturate(.72) contrast(.95)}
+.about:hover .arm-art{transform:scaleX(-1) rotate(-2deg) translateX(8px)}
+.pcb-art-one{right:-130px}.pcb-art-two{left:-190px}
+@media(max-width:760px){.arm-art{width:265px;height:360px;right:-98px;top:70px;opacity:.22}.pcb-art-one{right:-150px}.pcb-art-two{left:-185px}}
