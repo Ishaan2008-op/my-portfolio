@@ -17,59 +17,63 @@
     }
 
     nav {
-      top: 1.5rem;
-      left: 1.5rem;
-      right: auto;
+      top: 1rem;
+      left: 1rem;
+      right: 1rem;
       bottom: auto;
-      width: 16rem;
-      padding: 1.25rem;
-      border-radius: 24px;
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: flex-start;
-      gap: 1rem;
+      width: auto;
+      padding: 0.65rem 0.8rem;
+      border-radius: 12px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     }
 
     nav .nav-logo {
-      width: 100%;
-      display: block;
-      padding: 0.9rem 1rem;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.05);
-      text-align: left;
+      flex: 0 0 auto;
+      padding: 0.5rem 0.7rem;
+      border-radius: 8px;
+      background: transparent;
+      font-size: 1.05rem;
+      font-weight: 700;
     }
 
     nav .nav-links {
       display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      align-items: stretch;
+      flex-direction: row;
+      gap: 1.25rem;
+      align-items: center;
     }
 
     nav .nav-links a {
-      display: block;
-      width: 100%;
-      padding: 0.9rem 1rem;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      text-align: left;
+      display: inline-flex;
+      width: auto;
+      padding: 0.45rem 0;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      text-align: center;
+      font-size: 0.76rem;
+      white-space: nowrap;
     }
 
     nav .nav-links a:hover {
-      background: rgba(255, 255, 255, 0.08);
+      color: var(--accent-blue);
     }
 
     nav .nav-projects-btn {
-      border-radius: 16px;
-      width: 100%;
-      text-align: left;
+      border-radius: 3px;
+      padding: 0.55rem 0.75rem !important;
+      color: #071010;
+      background: var(--accent-blue) !important;
     }
 
     body {
-      padding-left: 18rem;
+      padding-left: 0;
+      padding-top: 5rem;
     }
 
     .projects-page-hero::before {
@@ -102,6 +106,191 @@
 
     .projects-section {
       padding: 4rem 2rem 10rem;
+    }
+
+    .timeline-intro {
+      max-width: 720px;
+      margin: 0 auto 4rem;
+    }
+
+    .timeline-intro p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .year-group {
+      margin-bottom: 4rem;
+    }
+
+    .year-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .year-heading h2 {
+      font-size: 2.2rem;
+    }
+
+    .year-heading span {
+      color: var(--accent-blue);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .year-projects {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      min-height: 0;
+      padding: 1.5rem 1.75rem;
+      border-radius: 8px;
+      cursor: default;
+    }
+
+    .project-card .project-media {
+      display: none;
+    }
+
+    .project-card .project-info {
+      padding: 0;
+    }
+
+    .project-card .project-year-badge {
+      display: none;
+    }
+
+    .project-card .project-category {
+      margin-bottom: 0.55rem;
+    }
+
+    .project-card .project-info h3 {
+      font-size: 1.55rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .project-card .project-description {
+      max-width: 780px;
+      margin-bottom: 1rem;
+      display: block;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .project-card .skills-tags {
+      display: none;
+    }
+
+    .project-details-button {
+      align-self: center;
+      border: 1px solid var(--accent-blue);
+      border-radius: 3px;
+      padding: 0.7rem 0.9rem;
+      background: transparent;
+      color: var(--accent-blue);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .project-details-button:hover {
+      background: var(--accent-blue);
+      color: #071010;
+    }
+
+    .projects-grid {
+      display: block;
+    }
+
+    .projects-grid .project-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      min-height: 0;
+      padding: 1.5rem 1.75rem;
+      border-radius: 8px;
+      cursor: default;
+    }
+
+    .projects-grid .project-card .project-media,
+    .projects-grid .project-card .skills-tags,
+    .projects-grid .project-card .project-year-badge {
+      display: none;
+    }
+
+    .projects-grid .project-card .project-info {
+      padding: 0;
+    }
+
+    .projects-grid .project-card .project-description {
+      display: block;
+      max-width: 780px;
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .track-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 0 auto 2rem;
+    }
+
+    .track-button {
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      padding: 0.8rem 1.2rem;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-secondary);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .track-button:hover,
+    .track-button.active {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+      color: #071010;
+    }
+
+    .project-card.is-hidden {
+      display: none;
+    }
+
+    .modal-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .modal-header-image:has(.modal-gallery) {
+      height: auto;
+      padding: 0.75rem;
+    }
+
+    .modal-gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
     }
 
     .first-year-track {
@@ -470,7 +659,7 @@
     }
 
     .modal-features li:before {
-      content: "â€”";
+      content: "-";
       color: var(--accent-blue);
     }
 
@@ -549,19 +738,73 @@
       }
     }
 
+    /* Timeline rows stay horizontal as the archive grows. */
+    .projects-grid {
+      display: block;
+    }
+
+    .year-projects {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 0.25rem 0.25rem 1rem;
+      scroll-snap-type: x proximity;
+      scrollbar-color: var(--accent-blue) transparent;
+    }
+
+    .year-projects .project-card {
+      flex: 0 0 min(78vw, 430px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      min-height: 0;
+      padding: 1.5rem 1.75rem;
+      border-radius: 8px;
+      cursor: default;
+      scroll-snap-align: start;
+    }
+
+    .year-projects .project-card .project-media,
+    .year-projects .project-card .skills-tags,
+    .year-projects .project-card .project-year-badge {
+      display: none;
+    }
+
+    .year-projects .project-card .project-info {
+      padding: 0;
+    }
+
+    .year-projects .project-card .project-description {
+      display: block;
+      max-width: none;
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .year-projects .project-details-button {
+      align-self: center;
+    }
+
     @media (max-width: 768px) {
       nav {
-        position: static;
-        width: auto;
-        margin: 1rem;
-        top: auto;
-        left: auto;
-        right: auto;
-        bottom: auto;
+        position: absolute;
+        margin: 0;
+        overflow: hidden;
       }
 
       body {
         padding-left: 0;
+        padding-top: 5rem;
+      }
+
+      nav .nav-links {
+        min-width: 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      nav .nav-links::-webkit-scrollbar {
+        display: none;
       }
 
       .projects-page-hero h1 {
@@ -580,6 +823,25 @@
       .modal-header {
         flex-direction: column;
         text-align: center;
+      }
+
+      .projects-grid .project-card {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .year-projects .project-card {
+        flex-basis: min(86vw, 360px);
+      }
+
+      .project-details-button {
+        justify-self: start;
+      }
+
+      .year-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.35rem;
       }
     }
   </style>
@@ -608,154 +870,187 @@
   <!-- Main Projects Section -->
   <section class="projects-section">
     <div class="projects-container">
-      <div class="first-year-track">
-        <div class="first-year-track-header">
-          <span class="first-year-track-label"><i class="fa-solid fa-calendar-check"></i> First Year Track</span>
-          <h2>First Year Project Log</h2>
-          <p>These are the mini projects I built in my first year. Iâ€™m keeping this section as a simple record so I can
-            track what I made, how I improved, and what I can build next.</p>
-        </div>
-        <div class="first-year-track-grid">
-          <div class="first-year-track-item">
-            <span class="track-index">Project 01</span>
-            <h3>Robo Sumo Bot</h3>
-            <p>First-year robotics build focused on gyro balance, motor control, and sensing.</p>
-          </div>
-          <div class="first-year-track-item">
-            <span class="track-index">Project 02</span>
-            <h3>Arduino Sleep Buzzer</h3>
-            <p>Early IoT hardware project using motion sensing and buzzer alerts.</p>
-          </div>
-          <div class="first-year-track-item">
-            <span class="track-index">Project 03</span>
-            <h3>RC Controlled Car</h3>
-            <p>Basic robotics learning project built around steering, RF control, and motors.</p>
-          </div>
-          <div class="first-year-track-item">
-            <span class="track-index">Project 04</span>
-            <h3>Emergency Gas Sense & Exit System</h3>
-            <p>Safety-focused automation project made in first year to detect gas and trigger exit control.</p>
-          </div>
-        </div>
+      <div class="timeline-intro">
+        <div class="section-kicker"><span>01</span> Build timeline</div>
+        <h2>Projects, by <em>year.</em></h2>
+        <p>A concise record of the systems I have built so far. Projects are grouped by the year recorded in my
+          portfolio, with capability level shown by track and detail available on demand.</p>
       </div>
 
       <div class="projects-grid">
-        <!-- Project 1: Robo Sumo Bot -->
-        <div class="card project-card" onclick="openModal(0)">
-          <div class="project-media">
-            <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad1)'/%3E%3Ccircle cx='150' cy='150' r='80' fill='%234f90e8' opacity='0.1'/%3E%3Crect x='100' y='100' width='140' height='100' fill='none' stroke='%234f90e8' stroke-width='3' rx='10'/%3E%3Ccircle cx='130' cy='140' r='15' fill='%234f90e8'/%3E%3Ccircle cx='210' cy='140' r='15' fill='%234f90e8'/%3E%3Crect x='105' y='180' width='130' height='8' fill='%234f90e8'/%3E%3Ctext x='250' y='150' font-size='20' fill='%234f90e8' font-weight='bold'%3EGyro-Based%3C/text%3E%3Ctext x='250' y='180' font-size='18' fill='%238b7fd8'%3EHardware Design%3C/text%3E%3C/svg%3E"
-              alt="Robo Sumo Bot">
-            <div class="project-overlay">
-              <div class="project-overlay-text">
-                <i class="fa-solid fa-click"></i> Click to see details
+        <section class="year-group" aria-labelledby="year-one-heading">
+          <div class="year-heading">
+            <h2 id="year-one-heading">Year 1</h2>
+            <span>Four documented projects</span>
+          </div>
+          <div class="year-projects">
+            <!-- Project 1: Robo Sumo Bot -->
+            <article class="card project-card" data-track="robotics">
+              <div class="project-media">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad1)'/%3E%3Ccircle cx='150' cy='150' r='80' fill='%234f90e8' opacity='0.1'/%3E%3Crect x='100' y='100' width='140' height='100' fill='none' stroke='%234f90e8' stroke-width='3' rx='10'/%3E%3Ccircle cx='130' cy='140' r='15' fill='%234f90e8'/%3E%3Ccircle cx='210' cy='140' r='15' fill='%234f90e8'/%3E%3Crect x='105' y='180' width='130' height='8' fill='%234f90e8'/%3E%3Ctext x='250' y='150' font-size='20' fill='%234f90e8' font-weight='bold'%3EGyro-Based%3C/text%3E%3Ctext x='250' y='180' font-size='18' fill='%238b7fd8'%3EHardware Design%3C/text%3E%3C/svg%3E"
+                  alt="Robo Sumo Bot">
+                <div class="project-overlay">
+                  <div class="project-overlay-text">
+                    <i class="fa-solid fa-click"></i> Click to see details
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-year-badge"><i class="fa-regular fa-calendar"></i> First Year Project</span>
-            <span class="project-category"><i class="fa-solid fa-robot"></i> Robotics</span>
-            <h3>Robo Sumo Bot</h3>
-            <p class="project-description">Gyro-based sumo robot with advanced hardware design and sensor integration.
-              Features MPU-6050 gyro stabilization, precision motor control, and ultrasonic obstacle detection for
-              competitive
-              sumo performance.</p>
-            <div class="skills-tags">
-              <span class="skill-tag">Arduino</span>
-              <span class="skill-tag">Gyroscope Sensors</span>
-              <span class="skill-tag">Motor Control</span>
-              <span class="skill-tag">Hardware Engineering</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2: Arduino Sleep Buzzer -->
-        <div class="card project-card" onclick="openModal(1)">
-          <div class="project-media">
-            <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad3m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad3m)'/%3E%3Crect x='100' y='60' width='120' height='160' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Crect x='120' y='80' width='80' height='100' fill='%234f90e8' opacity='0.2'/%3E%3Ccircle cx='160' cy='130' r='10' fill='%238b7fd8'/%3E%3Crect x='280' y='90' width='140' height='120' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='8'/%3E%3Ctext x='300' y='115' font-size='13' fill='%234f90e8' font-weight='bold'%3EPIR Sensor%3C/text%3E%3Crect x='290' y='135' width='120' height='50' fill='%234f90e8' opacity='0.15' rx='4'/%3E%3Ctext x='295' y='170' font-size='12' fill='%234f90e8'%3EMotion Detection%3C/text%3E%3Ctext x='130' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EArduino%3C/text%3E%3Ctext x='300' y='250' font-size='16' fill='%238b7fd8'%3EAlert System%3C/text%3E%3C/svg%3E"
-              alt="Arduino Sleep Buzzer">
-            <div class="project-overlay">
-              <div class="project-overlay-text">
-                <i class="fa-solid fa-click"></i> Click to see details
+              <div class="project-info">
+                <span class="project-year-badge"><i class="fa-regular fa-calendar"></i> First Year Project</span>
+                <span class="project-category"><i class="fa-solid fa-robot"></i> Robotics · Advanced</span>
+                <h3>Robo Sumo Bot</h3>
+                <p class="project-description">Gyro-based sumo robot with advanced hardware design and sensor
+                  integration.
+                  Features MPU-6050 gyro stabilization, precision motor control, and ultrasonic obstacle detection for
+                  competitive
+                  sumo performance.</p>
+                <div class="skills-tags">
+                  <span class="skill-tag">Arduino</span>
+                  <span class="skill-tag">Gyroscope Sensors</span>
+                  <span class="skill-tag">Motor Control</span>
+                  <span class="skill-tag">Hardware Engineering</span>
+                </div>
+                <button class="project-details-button" type="button" onclick="openModal(0)">See project details <i
+                    class="fa-solid fa-arrow-right"></i></button>
               </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-year-badge"><i class="fa-regular fa-calendar"></i> First Year Project</span>
-            <span class="project-category"><i class="fa-solid fa-microchip"></i> IoT Hardware</span>
-            <h3>Arduino Sleep Buzzer</h3>
-            <p class="project-description">Intelligent alarm system preventing oversleeping with motion detection.
-              Combines PIR sensors with Arduino Uno for reliable wake-up alerts. Features real-time motion sensing and
-              multi-tone buzzer control.</p>
-            <div class="skills-tags">
-              <span class="skill-tag">Arduino</span>
-              <span class="skill-tag">C++</span>
-              <span class="skill-tag">Embedded Systems</span>
-              <span class="skill-tag">Sensor Integration</span>
-            </div>
-          </div>
-        </div>
+            </article>
 
-        <!-- IPL Toss Analyzer removed per request -->
-
-        <!-- Project 4: RC Controlled Car -->
-        <div class="card project-card" onclick="openModal(2)">
-          <div class="project-media">
-            <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad4m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad4m)'/%3E%3Crect x='100' y='80' width='250' height='130' fill='none' stroke='%234f90e8' stroke-width='3' rx='12'/%3E%3Ccircle cx='150' cy='160' r='20' fill='%238b7fd8' opacity='0.7'/%3E%3Ccircle cx='280' cy='160' r='20' fill='%234f90e8' opacity='0.7'/%3E%3Crect x='125' y='105' width='150' height='40' fill='%234f90e8' opacity='0.2' rx='6'/%3E%3Cpath d='M 175 40 L 185 60 L 165 60 Z' fill='%234f90e8'/%3E%3Ctext x='110' y='250' font-size='18' fill='%234f90e8' font-weight='bold'%3EMotor Control%3C/text%3E%3Ctext x='280' y='250' font-size='18' fill='%238b7fd8'%3E%26 Steering%3C/text%3E%3C/svg%3E"
-              alt="RC Controlled Car">
-            <div class="project-overlay">
-              <div class="project-overlay-text">
-                <i class="fa-solid fa-click"></i> Click to see details
+            <!-- Project 2: Arduino Sleep Buzzer -->
+            <article class="card project-card" data-track="embedded">
+              <div class="project-media">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad3m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad3m)'/%3E%3Crect x='100' y='60' width='120' height='160' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Crect x='120' y='80' width='80' height='100' fill='%234f90e8' opacity='0.2'/%3E%3Ccircle cx='160' cy='130' r='10' fill='%238b7fd8'/%3E%3Crect x='280' y='90' width='140' height='120' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='8'/%3E%3Ctext x='300' y='115' font-size='13' fill='%234f90e8' font-weight='bold'%3EPIR Sensor%3C/text%3E%3Crect x='290' y='135' width='120' height='50' fill='%234f90e8' opacity='0.15' rx='4'/%3E%3Ctext x='295' y='170' font-size='12' fill='%234f90e8'%3EMotion Detection%3C/text%3E%3Ctext x='130' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EArduino%3C/text%3E%3Ctext x='300' y='250' font-size='16' fill='%238b7fd8'%3EAlert System%3C/text%3E%3C/svg%3E"
+                  alt="Arduino Sleep Buzzer">
+                <div class="project-overlay">
+                  <div class="project-overlay-text">
+                    <i class="fa-solid fa-click"></i> Click to see details
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <span class="project-year-badge"><i class="fa-regular fa-calendar"></i> First Year Project</span>
-            <span class="project-category"><i class="fa-solid fa-gamepad"></i> Robotics</span>
-            <h3>RC Controlled Car</h3>
-            <p class="project-description">Wireless remote-controlled robot car with motor control and steering.
-              Demonstrates PWM motor speed control, RF communication, and differential steering. Perfect foundation for
-              robotics learning and experimentation.</p>
-            <div class="skills-tags">
-              <span class="skill-tag">Arduino</span>
-              <span class="skill-tag">Motor Control</span>
-              <span class="skill-tag">Wireless Communication</span>
-              <span class="skill-tag">Robotics Basics</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5: Emergency Gas Sense & Exit System -->
-        <div class="card project-card" onclick="openModal(3)">
-          <div class="project-media">
-            <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad5m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad5m)'/%3E%3Crect x='100' y='70' width='120' height='140' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Ccircle cx='160' cy='140' r='8' fill='%234f90e8' opacity='0.8'/%3E%3Ccircle cx='140' cy='105' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Ccircle cx='155' cy='110' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Crect x='280' y='100' width='140' height='70' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='6'/%3E%3Cline x1='310' y1='115' x2='340' y2='115' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Cline x1='310' y1='150' x2='360' y2='150' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Ctext x='120' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EGas Detection%3C/text%3E%3Ctext x='290' y='250' font-size='16' fill='%238b7fd8'%3EServo-Controlled Exit%3C/text%3E%3C/svg%3E"
-              alt="Emergency Gas Sense & Exit System">
-            <div class="project-overlay">
-              <div class="project-overlay-text">
-                <i class="fa-solid fa-click"></i> Click to see details
+              <div class="project-info">
+                <span class="project-year-badge"><i class="fa-regular fa-calendar"></i> First Year Project</span>
+                <span class="project-category"><i class="fa-solid fa-microchip"></i> Embedded / IoT · Beginner</span>
+                <h3>Arduino Sleep Buzzer</h3>
+                <p class="project-description">Intelligent alarm system preventing oversleeping with motion detection.
+                  Combines PIR sensors with Arduino Uno for reliable wake-up alerts. Features real-time motion sensing
+                  and
+                  multi-tone buzzer control.</p>
+                <div class="skills-tags">
+                  <span class="skill-tag">Arduino</span>
+                  <span class="skill-tag">C++</span>
+                  <span class="skill-tag">Embedded Systems</span>
+                  <span class="skill-tag">Sensor Integration</span>
+                </div>
+                <button class="project-details-button" type="button" onclick="openModal(1)">See project details <i
+                    class="fa-solid fa-arrow-right"></i></button>
               </div>
-            </div>
+            </article>
+
+            <!-- IPL Toss Analyzer removed per request -->
+
+            <!-- Project 4: RC Controlled Car -->
+            <article class="card project-card" data-track="robotics">
+              <div class="project-media">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad4m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad4m)'/%3E%3Crect x='100' y='80' width='250' height='130' fill='none' stroke='%234f90e8' stroke-width='3' rx='12'/%3E%3Ccircle cx='150' cy='160' r='20' fill='%238b7fd8' opacity='0.7'/%3E%3Ccircle cx='280' cy='160' r='20' fill='%234f90e8' opacity='0.7'/%3E%3Crect x='125' y='105' width='150' height='40' fill='%234f90e8' opacity='0.2' rx='6'/%3E%3Cpath d='M 175 40 L 185 60 L 165 60 Z' fill='%234f90e8'/%3E%3Ctext x='110' y='250' font-size='18' fill='%234f90e8' font-weight='bold'%3EMotor Control%3C/text%3E%3Ctext x='280' y='250' font-size='18' fill='%238b7fd8'%3E%26 Steering%3C/text%3E%3C/svg%3E"
+                  alt="RC Controlled Car">
+                <div class="project-overlay">
+                  <div class="project-overlay-text">
+                    <i class="fa-solid fa-click"></i> Click to see details
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <span class="project-year-badge"><i class="fa-regular fa-calendar"></i> First Year Project</span>
+                <span class="project-category"><i class="fa-solid fa-gamepad"></i> Robotics · Beginner</span>
+                <h3>RC Controlled Car</h3>
+                <p class="project-description">Wireless remote-controlled robot car with motor control and steering.
+                  Demonstrates PWM motor speed control, RF communication, and differential steering. Perfect foundation
+                  for
+                  robotics learning and experimentation.</p>
+                <div class="skills-tags">
+                  <span class="skill-tag">Arduino</span>
+                  <span class="skill-tag">Motor Control</span>
+                  <span class="skill-tag">Wireless Communication</span>
+                  <span class="skill-tag">Robotics Basics</span>
+                </div>
+                <button class="project-details-button" type="button" onclick="openModal(2)">See project details <i
+                    class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </article>
+
+            <!-- Project 5: Emergency Gas Sense & Exit System -->
+            <article class="card project-card" data-track="embedded">
+              <div class="project-media">
+                <img
+                  src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad5m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad5m)'/%3E%3Crect x='100' y='70' width='120' height='140' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Ccircle cx='160' cy='140' r='8' fill='%234f90e8' opacity='0.8'/%3E%3Ccircle cx='140' cy='105' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Ccircle cx='155' cy='110' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Crect x='280' y='100' width='140' height='70' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='6'/%3E%3Cline x1='310' y1='115' x2='340' y2='115' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Cline x1='310' y1='150' x2='360' y2='150' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Ctext x='120' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EGas Detection%3C/text%3E%3Ctext x='290' y='250' font-size='16' fill='%238b7fd8'%3EServo-Controlled Exit%3C/text%3E%3C/svg%3E"
+                  alt="Emergency Gas Sense & Exit System">
+                <div class="project-overlay">
+                  <div class="project-overlay-text">
+                    <i class="fa-solid fa-click"></i> Click to see details
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <span class="project-year-badge"><i class="fa-regular fa-calendar"></i> First Year Project</span>
+                <span class="project-category"><i class="fa-solid fa-triangle-exclamation"></i> Embedded / IoT ·
+                  Intermediate</span>
+                <h3>Emergency Gas Sense & Exit System</h3>
+                <p class="project-description">Automated safety system monitoring air quality and triggering emergency
+                  protocols.
+                  Demonstrates IoT automation in real-world safety applications with automated servo-controlled
+                  emergency
+                  exits.
+                </p>
+                <div class="skills-tags">
+                  <span class="skill-tag">Arduino</span>
+                  <span class="skill-tag">Gas Sensors</span>
+                  <span class="skill-tag">Automation</span>
+                  <span class="skill-tag">Safety Systems</span>
+                </div>
+                <button class="project-details-button" type="button" onclick="openModal(3)">See project details <i
+                    class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </article>
+
           </div>
-          <div class="project-info">
-            <span class="project-year-badge"><i class="fa-regular fa-calendar"></i> First Year Project</span>
-            <span class="project-category"><i class="fa-solid fa-triangle-exclamation"></i> IoT Safety</span>
-            <h3>Emergency Gas Sense & Exit System</h3>
-            <p class="project-description">Automated safety system monitoring air quality and triggering emergency
-              protocols.
-              Demonstrates IoT automation in real-world safety applications with automated servo-controlled emergency
-              exits.
-            </p>
-            <div class="skills-tags">
-              <span class="skill-tag">Arduino</span>
-              <span class="skill-tag">Gas Sensors</span>
-              <span class="skill-tag">Automation</span>
-              <span class="skill-tag">Safety Systems</span>
-            </div>
+        </section>
+
+        <section class="year-group" aria-labelledby="current-year-heading">
+          <div class="year-heading">
+            <h2 id="current-year-heading">Current</h2>
+            <span>PCB design track</span>
           </div>
-        </div>
+          <div class="year-projects">
+            <!-- Project 5: Custom Counter Module -->
+            <article class="card project-card" data-track="pcb">
+              <div class="project-media">
+                <img src="assets/images/pcb1.png" alt="Custom Counter Module PCB design">
+                <div class="project-overlay">
+                  <div class="project-overlay-text">
+                    <i class="fa-solid fa-click"></i> Click to see details
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <span class="project-year-badge"><i class="fa-regular fa-calendar"></i> Beginner PCB Project</span>
+                <span class="project-category"><i class="fa-solid fa-layer-group"></i> PCB Design · Beginner</span>
+                <h3>Custom Counter Module</h3>
+                <p class="project-description">A three-digit digital sequential circuit that counts pulses from 0 to 999
+                  using decade counter ICs, with each decade advancing through ten states before resetting to zero.</p>
+                <div class="skills-tags">
+                  <span class="skill-tag">PCB Layout</span>
+                  <span class="skill-tag">Decade Counter ICs</span>
+                  <span class="skill-tag">Digital Logic</span>
+                  <span class="skill-tag">Seven-Segment Displays</span>
+                </div>
+                <button class="project-details-button" type="button" onclick="openModal(4)">See project details <i
+                    class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
 
       <!-- More Projects Coming Soon -->
@@ -788,6 +1083,8 @@
         id: 0,
         title: "Robo Sumo Bot",
         year: "First Year",
+        field: "Robotics",
+        level: "Advanced",
         category: "Advanced Robotics - Hardware Design",
         image: "assets/videos/robosumo.mp4",
         previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad1)'/%3E%3Ccircle cx='150' cy='150' r='80' fill='%234f90e8' opacity='0.1'/%3E%3Crect x='100' y='100' width='140' height='100' fill='none' stroke='%234f90e8' stroke-width='3' rx='10'/%3E%3Ccircle cx='130' cy='140' r='15' fill='%234f90e8'/%3E%3Ccircle cx='210' cy='140' r='15' fill='%234f90e8'/%3E%3Crect x='105' y='180' width='130' height='8' fill='%234f90e8'/%3E%3Ctext x='250' y='150' font-size='20' fill='%234f90e8' font-weight='bold'%3EGyro-Based%3C/text%3E%3Ctext x='250' y='180' font-size='18' fill='%238b7fd8'%3EHardware Design%3C/text%3E%3C/svg%3E",
@@ -801,12 +1098,14 @@
         ],
         skills: ["Arduino", "Gyroscope Sensors", "Motor Control", "Mechanical Design", "Hardware Engineering", "Sensor Calibration", "Robotics"],
         github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
-        techStack: "Arduino â€¢ MPU-6050 Gyro â€¢ DC Motors â€¢ Custom Chassis â€¢ Sensor Suite"
+        techStack: "Arduino - MPU-6050 Gyro - DC Motors - Custom Chassis - Sensor Suite"
       },
       {
         id: 1,
         title: "Arduino Sleep Buzzer",
         year: "First Year",
+        field: "Embedded / IoT",
+        level: "Beginner",
         category: "IoT Hardware & Embedded Systems",
         image: "assets/videos/buzzer.mp4",
         previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad3m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad3m)'/%3E%3Crect x='100' y='60' width='120' height='160' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Crect x='120' y='80' width='80' height='100' fill='%234f90e8' opacity='0.2'/%3E%3Ccircle cx='160' cy='130' r='10' fill='%238b7fd8'/%3E%3Crect x='280' y='90' width='140' height='120' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='8'/%3E%3Ctext x='300' y='115' font-size='13' fill='%234f90e8' font-weight='bold'%3EPIR Sensor%3C/text%3E%3Crect x='290' y='135' width='120' height='50' fill='%234f90e8' opacity='0.15' rx='4'/%3E%3Ctext x='295' y='170' font-size='12' fill='%234f90e8'%3EMotion Detection%3C/text%3E%3Ctext x='130' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EArduino%3C/text%3E%3Ctext x='300' y='250' font-size='16' fill='%238b7fd8'%3EAlert System%3C/text%3E%3C/svg%3E",
@@ -820,13 +1119,15 @@
         ],
         skills: ["Arduino", "C++", "Embedded Systems", "Sensor Integration", "Hardware Programming", "IoT Concepts", "Circuit Design"],
         github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
-        techStack: "Arduino Uno â€¢ PIR Sensors â€¢ Active Buzzer â€¢ Wiring Diagrams"
+        techStack: "Arduino Uno - PIR Sensors - Active Buzzer - Wiring Diagrams"
       },
       // IPL Toss Analyzer entry removed per user request
       {
         id: 2,
         title: "RC Controlled Car",
         year: "First Year",
+        field: "Robotics",
+        level: "Beginner",
         category: "Robotics Fundamentals",
         image: "assets/videos/rc car.mp4",
         previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad4m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad4m)'/%3E%3Crect x='100' y='80' width='250' height='130' fill='none' stroke='%234f90e8' stroke-width='3' rx='12'/%3E%3Ccircle cx='150' cy='160' r='20' fill='%238b7fd8' opacity='0.7'/%3E%3Ccircle cx='280' cy='160' r='20' fill='%234f90e8' opacity='0.7'/%3E%3Crect x='125' y='105' width='150' height='40' fill='%234f90e8' opacity='0.2' rx='6'/%3E%3Cpath d='M 175 40 L 185 60 L 165 60 Z' fill='%234f90e8'/%3E%3Ctext x='110' y='250' font-size='18' fill='%234f90e8' font-weight='bold'%3EMotor Control%3C/text%3E%3Ctext x='280' y='250' font-size='18' fill='%238b7fd8'%3E%26 Steering%3C/text%3E%3C/svg%3E",
@@ -840,12 +1141,14 @@
         ],
         skills: ["Arduino", "Motor Control", "C++", "Wireless Communication", "Mechanical Assembly", "Robotics Basics"],
         github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
-        techStack: "Arduino â€¢ DC Motors â€¢ RF Transceiver â€¢ Chassis & Wheels"
+        techStack: "Arduino - DC Motors - RF Transceiver - Chassis & Wheels"
       },
       {
         id: 3,
         title: "Emergency Gas Sense & Exit System",
         year: "First Year",
+        field: "Embedded / IoT",
+        level: "Intermediate",
         category: "IoT Safety Applications",
         image: "assets/videos/basic working gas sense and exit.mp4",
         previewImage: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Cdefs%3E%3ClinearGradient id='grad5m' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231a2332;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23252c3c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='300' fill='url(%23grad5m)'/%3E%3Crect x='100' y='70' width='120' height='140' fill='none' stroke='%234f90e8' stroke-width='2.5' rx='8'/%3E%3Ccircle cx='160' cy='140' r='8' fill='%234f90e8' opacity='0.8'/%3E%3Ccircle cx='140' cy='105' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Ccircle cx='155' cy='110' r='5' fill='%234f90e8' opacity='0.5'/%3E%3Crect x='280' y='100' width='140' height='70' fill='none' stroke='%238b7fd8' stroke-width='2.5' rx='6'/%3E%3Cline x1='310' y1='115' x2='340' y2='115' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Cline x1='310' y1='150' x2='360' y2='150' stroke='%238b7fd8' stroke-width='3.5'/%3E%3Ctext x='120' y='250' font-size='16' fill='%234f90e8' font-weight='bold'%3EGas Detection%3C/text%3E%3Ctext x='290' y='250' font-size='16' fill='%238b7fd8'%3EServo-Controlled Exit%3C/text%3E%3C/svg%3E",
@@ -859,7 +1162,29 @@
         ],
         skills: ["Arduino", "Gas Sensors", "Servo Motors", "C++", "Automation", "Safety Systems", "IoT Design"],
         github: "https://github.com/Ishaan2008-op/hardware-miniprojects",
-        techStack: "Arduino â€¢ MQ Gas Sensor â€¢ Servo Motor â€¢ Safety Standards"
+        techStack: "Arduino - MQ Gas Sensor - Servo Motor - Safety Standards"
+      },
+      {
+        id: 4,
+        title: "Custom Counter Module",
+        year: "Beginner PCB Design",
+        field: "PCB Design / Digital Logic",
+        level: "Beginner",
+        category: "PCB Design - Digital Sequential Circuit",
+        image: "assets/images/pcb2png.png",
+        gallery: ["assets/images/pcb1.png"],
+        previewImage: "assets/images/pcb1.png",
+        shortDesc: "A beginner-friendly three-digit pulse counter built with decade counter ICs.",
+        longDesc: "The Custom Counter Module is a digital sequential circuit that counts input pulses from 0 to 999. Each decade counter IC progresses through ten states, 0 through 9, then resets to zero and provides the carry pulse for the next digit.",
+        details: [
+          "Three decade stages cascade to represent units, tens, and hundreds",
+          "Each counter advances through 10 states before returning to zero",
+          "Seven-segment displays provide a direct visual readout from 000 to 999",
+          "Beginner PCB layout practice with footprints, routing, power, and signal paths"
+        ],
+        skills: ["PCB Layout", "Decade Counter ICs", "Digital Logic", "Sequential Circuits", "Seven-Segment Displays", "Schematic Reading"],
+        github: "#",
+        techStack: "Decade Counter ICs - Seven-Segment Displays - Clock Input - Custom PCB"
       }
     ];
 
@@ -869,6 +1194,7 @@
 
       let detailsHTML = project.details.map(detail => `<li>${detail}</li>`).join('');
       let skillsHTML = project.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('');
+      let galleryHTML = project.gallery ? `<div class="modal-gallery">${project.gallery.map(image => `<img src="${image}" alt="${project.title} PCB view">`).join('')}</div>` : '';
 
       // Check if the image is actually a video file
       const isVideo = project.image && (project.image.endsWith('.mp4') || project.image.endsWith('.webm'));
@@ -886,6 +1212,7 @@
       } else {
         mediaHTML = `<div class="modal-header-image">
       <img src="${project.image}" alt="${project.title}" style="border-radius: 8px;">
+      ${galleryHTML}
      </div>`;
       }
 
@@ -897,7 +1224,7 @@
               <i class="fa-regular fa-calendar"></i> ${project.year || 'First Year'}
             </div>
             <div class="modal-category-full">
-              <i class="fa-solid fa-star"></i> ${project.category}
+              <i class="fa-solid fa-layer-group"></i> ${project.field} · ${project.level}
             </div>
             <h2>${project.title}</h2>
             <p style="color: var(--text-secondary); margin-top: 0.5rem;">${project.shortDesc}</p>
